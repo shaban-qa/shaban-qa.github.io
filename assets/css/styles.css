@@ -163,23 +163,39 @@ details > div {
   animation: sweep 0.3s ease-in-out;
 }
 
+/* Початкові стилі для стікера */
 .sticker-container {
-  position: fixed;
+  position: fixed;  /* Завжди в одному місці, навіть при скролі */
   bottom: 20px;
   right: 20px;
   z-index: 1000;
 }
 
 .sticker-container img {
-  width: 120px; 
+  width: 120px; /* Розмір на десктопі */
   height: auto;
-  border: none; 
-  box-shadow: none; 
-  border-radius: 0; 
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  transition: transform 0.3s ease;
 }
 
 .sticker-container img:hover {
   transform: scale(1.2);
+}
+
+/* Медіа-запит для екранів зі шириною менш ніж 768px (наприклад, мобільні) */
+@media (max-width: 768px) {
+  .sticker-container img {
+    width: 80px; /* Зменшений розмір на мобільних */
+  }
+}
+
+/* Якщо потрібно ще менший розмір на дуже вузьких екранах (наприклад, max-width: 480px), можна додати ще один медіа-запит */
+@media (max-width: 480px) {
+  .sticker-container img {
+    width: 60px; 
+  }
 }
 
 @keyframes sweep {
