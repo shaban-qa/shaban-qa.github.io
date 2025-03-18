@@ -18,26 +18,26 @@
   </header>
 
   <!-- Dropdown Navigation -->
-<nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
-  <div class="flex justify-center">
-    <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
-      <i class="fas fa-chevron-down"></i>
-    </button>
-  </div>
-  <div id="dropdown-menu" class="hidden grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-4">
-    <a href="#overview" class="nav-btn"><i class="fas fa-info-circle"></i> Overview</a>
-    <a href="#test-env" class="nav-btn"><i class="fas fa-server"></i> Test Environment</a>
-    <a href="#test-cases" class="nav-btn"><i class="fas fa-clipboard-list"></i> Test Cases</a>
-    <a href="#api" class="nav-btn"><i class="fas fa-network-wired"></i> API Testing</a>
-    <a href="#database" class="nav-btn"><i class="fas fa-database"></i> DB Testing</a>
-    <a href="#regression" class="nav-btn"><i class="fas fa-sync-alt"></i> Regression</a>
-    <a href="#automation" class="nav-btn"><i class="fas fa-robot"></i> Automation</a>
-    <a href="#prod-monitoring" class="nav-btn"><i class="fas fa-chart-line"></i> Prod Monitoring</a>
-    <a href="#bug-reports" class="nav-btn"><i class="fas fa-bug"></i> Bug Reports</a>
-    <a href="#screenshots" class="nav-btn"><i class="fas fa-images"></i> Screenshots</a>
-    <a href="#conclusions" class="nav-btn"><i class="fas fa-check-circle"></i> Summary</a>
-  </div>
-</nav>
+  <nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
+    <div class="flex justify-center">
+      <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+    <div id="dropdown-menu" class="hidden grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-4">
+      <a href="#overview" class="nav-btn"><i class="fas fa-info-circle"></i> Overview</a>
+      <a href="#test-env" class="nav-btn"><i class="fas fa-server"></i> Test Environment</a>
+      <a href="#test-cases" class="nav-btn"><i class="fas fa-clipboard-list"></i> Test Cases</a>
+      <a href="#api" class="nav-btn"><i class="fas fa-network-wired"></i> API Testing</a>
+      <a href="#database" class="nav-btn"><i class="fas fa-database"></i> DB Testing</a>
+      <a href="#regression" class="nav-btn"><i class="fas fa-sync-alt"></i> Regression</a>
+      <a href="#automation" class="nav-btn"><i class="fas fa-robot"></i> Automation</a>
+      <a href="#prod-monitoring" class="nav-btn"><i class="fas fa-chart-line"></i> Prod Monitoring</a>
+      <a href="#bug-reports" class="nav-btn"><i class="fas fa-bug"></i> Bug Reports</a>
+      <a href="#screenshots" class="nav-btn"><i class="fas fa-images"></i> Screenshots</a>
+      <a href="#conclusions" class="nav-btn"><i class="fas fa-check-circle"></i> Summary</a>
+    </div>
+  </nav>
 
 
   <!-- Main content -->
@@ -46,119 +46,523 @@
     <!-- OVERVIEW (always open, no details) -->
     <section id="overview" class="bg-gray-800 p-4 rounded">
       <h2 class="text-3xl font-bold text-yellow-400 mb-2">Overview</h2>
+      <!-- Short "Executive Summary"  -->
+      <p class="text-sm mb-4 bg-gray-700 p-2 rounded">
+        <strong>Executive Summary:</strong> This project involves <em>Saleor</em> E-commerce testing, covering <strong>manual functional</strong> checks (registration, checkout) and <strong>basic automation</strong> (Selenium + Pytest). I also tested the <strong>GraphQL API</strong> with Postman and performed <strong>DB validation</strong> in PostgreSQL.  
+        <br>
+        Current Status: <span style="color: orange;">Ongoing</span> (since <<PLACEHOLDER DATE>>) — Additional <em>performance tests</em> may be added later.
+      </p>
+
       <p class="text-lg leading-relaxed">
-        A short description of the product, requirements, and testing goals.<br>
-        <!-- Add your content... -->
+        This project focuses on testing the open-source E-commerce platform 
+        <strong>Saleor</strong>, deployed locally using Docker and Docker Compose. 
+        Saleor provides a full set of features for product management, user authentication, 
+        cart/checkout, payments, and other essential E-commerce operations.
+        <br><br>
+        Our goal was to validate key functionalities (user registration, product catalog, 
+        checkout flow, etc.) via manual and automated tests, ensure data integrity 
+        at the database layer, and confirm system stability under basic regression scenarios.
       </p>
     </section>
 
     <!-- TEST ENVIRONMENT -->
     <details id="test-env">
       <summary>Test Environment</summary>
-      <div>
-        <p>List of devices, browsers, APIs, databases, and tools.</p>
+      <div class="mt-4">
+        <p><strong>Deployment Setup:</strong> Docker + Docker Compose (local environment)</p>
+        <p><strong>Saleor Version:</strong> Cloned from 
+          <a href="https://github.com/saleor/saleor-platform" target="_blank" class="text-blue-400 hover:text-blue-300">saleor-platform</a>, commit 
+          <span style="color: orange;"><<PLACEHOLDER COMMIT>></span>
+        </p>
+        <p><strong>Documentation Reference:</strong> 
+          <a href="https://docs.saleor.io/setup/docker-compose" target="_blank" class="text-blue-400 hover:text-blue-300">Saleor Docs (Docker Compose)</a>
+        </p>
+
+        <p><strong>Installation Steps:</strong></p>
+        <ol class="list-decimal list-inside mb-4">
+          <li>Cloned the repository: 
+            <code>git clone https://github.com/saleor/saleor-platform.git</code>
+          </li>
+          <li>Verified Docker (v20.10+) and Docker Compose (v2+)</li>
+          <li>From the <code>saleor-platform</code> folder, ran 
+            <code>docker-compose up -d</code> to start all containers in detached mode</li>
+          <li>Created a superuser with 
+            <code>docker-compose exec api python manage.py createsuperuser</code></li>
+          <li>Checked the running services:
+            <ul class="list-disc list-inside">
+              <li>API/GraphQL: <code>http://localhost:8000/</code></li>
+              <li>Dashboard: <code>http://localhost:3000/</code></li>
+              <li>Storefront: <code>http://localhost:8080/</code></li>
+            </ul>
+          </li>
+        </ol>
+
+        <p>
+          This setup allows us to perform comprehensive functional, API (GraphQL), and 
+          integration tests on the Saleor platform. For a clean reset, we can run 
+          <code>docker-compose down</code> and <code>docker-compose up -d</code> again.
+        </p>
       </div>
     </details>
 
     <!-- TEST CASES -->
     <details id="test-cases">
       <summary>Test Cases</summary>
-      <div>
-        <!-- An example -->
+      <div class="mt-4">
+        <!-- EXAMPLE 1 -->
         <details>
-          <summary>TC-001: Login with valid credentials</summary>
-          <div>
-            <p><strong>Steps:</strong> Open login page → Enter valid credentials → Click login</p>
-            <p><strong>Expected:</strong> User logs in successfully.</p>
-            <p><strong>Status:</strong> [Pending / Pass / Fail]</p>
+          <summary>TC-001: User Registration with Valid Data (Equivalence Partitioning)</summary>
+          <div class="mt-2">
+            <p><strong>Technique:</strong> Equivalence Partitioning</p>
+            <p><strong>Objective:</strong> Verify that a new user can successfully register with valid inputs.</p>
+            
+            <p><strong>Preconditions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Saleor platform is running (Docker containers up).</li>
+              <li>Open browser on Storefront or a registration page path.</li>
+            </ul>
+
+            <p><strong>Test Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Navigate to the "Sign Up" page.</li>
+              <li>Enter a valid email (e.g., <code>john.doe@example.com</code>).</li>
+              <li>Enter a valid password, confirm it.</li>
+              <li>Click "Sign Up".</li>
+            </ol>
+
+            <p><strong>Expected Result:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>System successfully creates a new user account.</li>
+              <li>User sees a welcome/confirmation message.</li>
+              <li>No errors appear for valid fields.</li>
+            </ul>
+
+            <p><strong>Status:</strong> <span style="color: lime;">Pass</span></p>
           </div>
         </details>
-        <!-- Add more <details> for each test case -->
+
+        <!-- EXAMPLE 2 -->
+        <details>
+          <summary>TC-002: User Registration with Invalid Email (Negative)</summary>
+          <div class="mt-2">
+            <p><strong>Technique:</strong> Equivalence Partitioning (Invalid Partition)</p>
+            <p><strong>Objective:</strong> Ensure the registration form properly rejects malformed email inputs.</p>
+            
+            <p><strong>Preconditions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Saleor Storefront is accessible.</li>
+            </ul>
+
+            <p><strong>Test Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Open the "Sign Up" page.</li>
+              <li>Enter an invalid email format (e.g., <code>john.doe@@example</code>).</li>
+              <li>Enter a valid password, confirm it.</li>
+              <li>Click "Register".</li>
+            </ol>
+
+            <p><strong>Expected Result:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Error message for the email field displayed.</li>
+              <li>Account not created until a valid email is provided.</li>
+            </ul>
+
+            <p><strong>Status:</strong> <span style="color: lime;">Pass</span></p>
+          </div>
+        </details>
+
+        <!-- EXAMPLE 3 -->
+        <details>
+          <summary>TC-003: Login Attempts with Valid/Invalid Password (Decision Table)</summary>
+          <div class="mt-2">
+            <p><strong>Technique:</strong> Decision Table Testing</p>
+            <p><strong>Objective:</strong> Validate login outcomes under different password correctness scenarios.</p>
+            
+            <p><strong>Decision Table:</strong></p>
+            <table style="width:100%; border: 1px solid #ccc; border-collapse: collapse;">
+              <thead style="background-color: #333; color: #fff;">
+                <tr>
+                  <th style="border: 1px solid #ccc; padding: 4px;">Email Valid?</th>
+                  <th style="border: 1px solid #ccc; padding: 4px;">Password Valid?</th>
+                  <th style="border: 1px solid #ccc; padding: 4px;">Expected Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Yes</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Yes</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Successful Login</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Yes</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">No</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Error Message (Invalid Password)</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ccc; padding: 4px;">No</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Any</td>
+                  <td style="border: 1px solid #ccc; padding: 4px;">Error Message (Invalid Email)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><strong>Test Steps (Example):</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Open the Login page.</li>
+              <li>Enter valid/invalid email + valid/invalid password combos.</li>
+              <li>Click "Login".</li>
+            </ol>
+
+            <p><strong>Expected Results:</strong> Matches the outcome in the decision table.</p>
+            <p><strong>Status:</strong> <span style="color: lime;">Pass</span></p>
+          </div>
+        </details>
+
+        <!-- EXAMPLE 4 -->
+        <details>
+          <summary>TC-004: Checkout with Edge Quantity Values (Boundary Value Analysis)</summary>
+          <div class="mt-2">
+            <p><strong>Technique:</strong> Boundary Value Analysis</p>
+            <p><strong>Objective:</strong> Confirm the system handles min/max order quantities properly.</p>
+            
+            <p><strong>Preconditions:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>User is logged in with a valid account.</li>
+              <li>At least one product is available.</li>
+            </ul>
+
+            <p><strong>Test Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Add a product to cart with quantity = 1 (minimum valid).</li>
+              <li>Proceed to checkout. Observe if order is processed.</li>
+              <li>Try quantity = 0. Confirm system blocks the action.</li>
+              <li>Try quantity = 99 (or max). Confirm if system allows or errors out.</li>
+            </ol>
+
+            <p><strong>Expected Result:</strong></p>
+            <ul class="list-disc list-inside">
+              <li>Qty = 1: Checkout completes successfully.</li>
+              <li>Qty = 0: Error/warning preventing the operation.</li>
+              <li>Qty = 99: Either processes or shows a limit message (per config).</li>
+            </ul>
+
+            <p><strong>Status:</strong> <span style="color: lime;">Pass</span></p>
+          </div>
+        </details>
       </div>
     </details>
 
     <!-- API TESTING -->
     <details id="api">
       <summary>API Testing</summary>
-      <div>
-        <details>
-          <summary>POST /api/login</summary>
-          <div>
-            JSON request, response, expected results, and status codes.
-          </div>
-        </details>
+      <div class="mt-4">
+        <p>
+          Saleor uses a <strong>GraphQL API</strong>. We tested key queries and mutations 
+          (product listings, checkout creation, user registration) via <strong>Postman</strong>:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Query products</strong> – Validate status code 200, correct fields returned.</li>
+          <li><strong>Mutation createCheckout</strong> – Confirm checkout object is created with correct total price.</li>
+          <li><strong>Mutation tokenCreate (login)</strong> – Check that valid credentials return a token, invalid fails with error message.</li>
+        </ul>
+        <p><strong>Results:</strong> All major queries/mutations responded correctly with expected JSON structures. Negative scenarios (e.g., invalid token) returned appropriate error codes.</p>
+        <p><strong>Status:</strong> <span style="color: lime;">Pass</span></p>
       </div>
     </details>
 
     <!-- DB TESTING -->
     <details id="database">
       <summary>DB Testing</summary>
-      <div>
+      <div class="mt-4">
+        <p><strong>Goal:</strong> Confirm that users, orders, and products are accurately stored in PostgreSQL.</p>
+        <p><strong>Configuration:</strong> Docker Compose includes the <code>db</code> service with default credentials from <code>.env</code>.</p>
+
+        <p><strong>Key Test Cases:</strong></p>
+
         <details>
-          <summary>Check user exists in DB</summary>
-          <div>SQL Query: SELECT * FROM users WHERE email='test@example.com';</div>
+          <summary>DB-TC-001: Verify new user record in "account_user"</summary>
+          <div class="mt-2">
+            <p><strong>Scenario:</strong> After registering a user, check DB for a matching row.</p>
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Register user <code>alice@example.com</code> in the Storefront.</li>
+              <li>Connect to PostgreSQL via psql or DBeaver.</li>
+              <li>Run <code>SELECT email FROM account_user WHERE email='alice@example.com';</code></li>
+              <li>Verify 1 row is returned.</li>
+            </ol>
+            <p><strong>Result:</strong> <span style="color: lime;">Pass</span></p>
+          </div>
         </details>
+
+        <details>
+          <summary>DB-TC-002: Check order creation in "order_order"</summary>
+          <div class="mt-2">
+            <p><strong>Scenario:</strong> User checks out a product. DB should record an order with correct total.</p>
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Add item to cart, proceed to checkout, complete payment.</li>
+              <li>Run <code>SELECT total_gross_amount FROM order_order ORDER BY created_at DESC LIMIT 1;</code></li>
+              <li>Verify total matches product price, status is <code>UNFULFILLED</code> or <code>NEW</code>.</li>
+            </ol>
+            <p><strong>Result:</strong> <span style="color: lime;">Pass</span></p>
+          </div>
+        </details>
+
+        <p class="mt-4">No major issues found; database consistency appears correct. Additional checks on shipping zones, discount codes are ongoing.</p>
       </div>
     </details>
 
     <!-- REGRESSION -->
     <details id="regression">
-      <summary>Regression</summary>
-      <div>
-        <p>Description of pre-release checks: smoke/regression, testing critical paths.</p>
+      <summary>Regression Testing</summary>
+      <div class="mt-4">
+        <p><strong>Objective:</strong> Ensure existing functionality remains stable after new features/bug fixes.</p>
+        <p><strong>Strategy:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Smoke Test Suite:</strong> Basic checks for login, storefront loading, cart/checkout flow.</li>
+          <li><strong>Partial Regression:</strong> For changes in product pricing logic, retest the product catalog, pricing APIs, checkout totals.</li>
+          <li><strong>Full Regression:</strong> Major releases or big changes trigger a complete test pass (registration, orders, payments, DB validation).</li>
+        </ul>
+
+        <p><strong>Execution Process:</strong></p>
+        <ol class="list-decimal list-inside mb-4">
+          <li>After each new Docker Compose build, run the smoke tests.</li>
+          <li>Identify impacted areas from commit history.</li>
+          <li>Execute relevant test sets, log results in TestRail/Jira.</li>
+          <li>Re-test once issues are fixed, confirm no side effects.</li>
+        </ol>
+
+        <p><strong>Outcome:</strong> Minimal regressions observed in routine updates. One known bug (see <a href="#bug-reports" class="text-blue-400 hover:text-blue-300">BUG-001</a>) emerges only with certain coupon codes, escalated to dev team.</p>
       </div>
     </details>
 
     <!-- AUTOMATION -->
     <details id="automation">
       <summary>Automation</summary>
-      <div>
-        <p>Description of automation: Selenium, Playwright, GitHub Actions, CI/CD pipeline, etc.</p>
+      <div class="mt-4">
+        <p><strong>Objective:</strong> Speed up repeated testing (Smoke/Regression) with minimal manual effort.</p>
+        
+        <p><strong>Tools & Frameworks:</strong></p>
+        <ul class="list-disc list-inside">
+          <li><strong>Selenium WebDriver</strong> (Python binding) for UI automation.</li>
+          <li><strong>Pytest</strong> for structure & reporting.</li>
+          <li><strong>GitHub Actions</strong> for CI integration.</li>
+        </ul>
+
+        <p><strong>Sample Test:</strong></p>
+        <pre>
+<code># file: test_login.py
+
+import pytest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+@pytest.fixture
+def browser():
+    driver = webdriver.Chrome()
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
+
+def test_valid_login(browser):
+    browser.get("http://localhost:8080/")
+    browser.find_element(By.LINK_TEXT, "Sign In").click()
+    browser.find_element(By.NAME, "email").send_keys("john.doe@example.com")
+    browser.find_element(By.NAME, "password").send_keys("SuperSecure123")
+    browser.find_element(By.XPATH, "//button[text()='Login']").click()
+
+    account_header = browser.find_element(By.CSS_SELECTOR, ".account-header")
+    assert "Hello, John" in account_header.text
+</code>
+        </pre>
+
+        <p><strong>GitHub Actions Workflow:</strong> runs this suite on each push, ensuring login flow remains stable. Future expansions will cover checkout flow, product creation in the dashboard, etc.</p>
       </div>
     </details>
 
     <!-- PROD MONITORING -->
     <details id="prod-monitoring">
       <summary>Prod Monitoring</summary>
-      <div>
-        <p>Kibana, Grafana, error logging, incident notifications.</p>
+      <div class="mt-4">
+        <p><strong>Objective:</strong> Track the health and performance of Saleor in a production-like environment. Quickly detect issues via logs and metrics.</p>
+        
+        <p><strong>Tools & Setup:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Docker Logs</strong> for base checks.</li>
+          <li><strong>Prometheus + Grafana</strong> (optional) for metrics (CPU, memory, response times).</li>
+          <li><strong>Kibana (ELK stack)</strong> for log aggregation and search.</li>
+        </ul>
+
+        <p><strong>Alerts & Incident Management:</strong> Slack/email notifications for 5xx spikes, CPU >80%. On-call engineer investigates via Kibana, verifies logs, applies fix or rollback if needed.</p>
+        <p><strong>Outcome:</strong> Monitoring helps swiftly identify gateway/payment issues (BUG-001) and reduces downtime for storefront users.</p>
       </div>
     </details>
 
     <!-- BUG REPORTS -->
     <details id="bug-reports">
       <summary>Bug Reports</summary>
-      <div>
-        <!-- An example bug -->
-        <details>
-          <summary>BUG-001: Login fails on mobile</summary>
-          <div>
-            Steps, expected vs actual result, severity.
-            <br><strong>Severity:</strong> High
-            <br><strong>Status:</strong> Open
+      <div class="mt-4">
+        <p><em>The following are sample bug reports styled like JIRA tickets:</em></p>
+
+        <!-- BUG-001 -->
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-001: Payment Gateway Error on Checkout
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: red;">High</span></p>
+            <p><strong>Reporter:</strong> QA Tester</p>
+            <p><strong>Assignee:</strong> John Developer</p>
+
+            <p><strong>Description:</strong><br>
+              During the final step of checkout, the payment gateway returns a 500 server error 
+              when using a specific coupon code (“SALE20”).
+            </p>
+
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Add any product to the cart.</li>
+              <li>Apply coupon “SALE20”.</li>
+              <li>Proceed to payment (enter valid card details).</li>
+              <li>Click “Pay” and observe the 500 Internal Server Error.</li>
+            </ol>
+
+            <p><strong>Expected Result:</strong><br>
+              Successful payment or a clear gateway error message if the coupon is invalid.
+            </p>
+
+            <p><strong>Actual Result:</strong><br>
+              Blank screen with 500 Internal Server Error, no fallback message.
+            </p>
+
+            <p><strong>Environment:</strong><br>
+              Docker-based Saleor (local), commit <span style="color: orange;"><<PLACEHOLDER>></span>.
+            </p>
+
+            <p><strong>Attachments:</strong> 
+              <a href="img/bug-001-screenshot.png" target="_blank">Screenshot</a>
+            </p>
           </div>
         </details>
+
+        <!-- BUG-002 -->
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-002: Dashboard Crashes on Product Update
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: orange;">Medium</span></p>
+            <p><strong>Reporter:</strong> QA Tester</p>
+            <p><strong>Assignee:</strong> Jane Developer</p>
+
+            <p><strong>Description:</strong><br>
+              Updating a product’s price in the admin dashboard (using a comma instead of a dot) leads to 
+              an “Unexpected token &lt; in JSON” error, crashing the page.
+            </p>
+
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Go to Dashboard → Products.</li>
+              <li>Select a product, change price from 39.99 to 39,99 (comma format).</li>
+              <li>Click “Save” and check console logs/network.</li>
+            </ol>
+
+            <p><strong>Expected Result:</strong><br>
+              Either properly handle comma or show a validation error. No crash occurs.
+            </p>
+
+            <p><strong>Actual Result:</strong><br>
+              Dashboard UI freezes; console logs “Unexpected token &lt; in JSON”.
+            </p>
+
+            <p><strong>Environment:</strong><br>
+              Docker-based Saleor (staging), commit <span style="color: orange;"><<PLACEHOLDER>></span>.
+            </p>
+
+            <p><strong>Attachments:</strong> 
+              <a href="img/bug-002-screenshot.png" target="_blank">Screenshot</a>
+            </p>
+          </div>
+        </details>
+
+        <p><em>Additional bugs are tracked in JIRA:</em> 
+          <a href="https://your-jira-site/browse/SALEOR" target="_blank" class="text-blue-400 hover:text-blue-300">View JIRA Board</a>
+        </p>
       </div>
     </details>
 
     <!-- SCREENSHOTS -->
     <details id="screenshots">
       <summary>Screenshots</summary>
-      <div>
-        <p>Proofs, videos, screenshots. You can add <code>&lt;img&gt;</code> tags or links.</p>
+      <div class="mt-4">
+        <p><strong>Evidence of Testing:</strong></p>
+        <ul class="list-disc list-inside">
+          <li><a href="img/storefront-registration.png" target="_blank" class="text-blue-400 hover:text-blue-300">Storefront Registration</a></li>
+          <li><a href="img/postman-graphql.png" target="_blank" class="text-blue-400 hover:text-blue-300">Postman GraphQL Queries</a></li>
+          <li><a href="img/db-inspection.png" target="_blank" class="text-blue-400 hover:text-blue-300">DB Inspection (DBeaver)</a></li>
+          <li><a href="img/selenium-test-report.png" target="_blank" class="text-blue-400 hover:text-blue-300">Selenium Test Report</a></li>
+        </ul>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            Some screenshots are placeholders and will be replaced with real data 
+            once <span style="color: orange;"><<PLACEHOLDER milestone>></span> is achieved.
+          </em>
+        </p>
       </div>
     </details>
 
     <!-- CONCLUSIONS -->
     <details id="conclusions">
       <summary>Summary</summary>
-      <div>
-        <p>Overall testing summary, statistics, and recommendations.</p>
+      <div class="mt-4">
+        <p>
+          Overall, the Saleor E-commerce platform performed well under typical usage:
+          user registration, login, product browsing, checkout, and basic DB verification 
+          all passed. 
+        </p>
+        <p>
+          <strong>Key findings:</strong> 
+          <ul class="list-disc list-inside mb-2">
+            <li>Registration & Login flows are stable (TC-001, TC-002, TC-003: Pass)</li>
+            <li>Checkout handles normal & boundary quantities (TC-004: Pass)</li>
+            <li>Payment gateway coupon issue (BUG-001) requires dev fix.</li>
+            <li>Dashboard price update with comma format triggers crash (BUG-002).</li>
+          </ul>
+        </p>
+        <p>
+          <strong>Recommendations:</strong>  
+          <ul class="list-disc list-inside">
+            <li>Improve error handling for payment gateways, especially for coupon-based discounts.</li>
+            <li>Validate numeric input in the dashboard to prevent “comma vs dot” format issues.</li>
+            <li>Enhance UI automation coverage for the entire checkout flow & product management.</li>
+            <li>Implement robust monitoring/alerting in production to detect similar issues quickly.</li>
+          </ul>
+        </p>
+        <p>
+          Future work includes deeper performance testing, scaling tests for high concurrency, 
+          and security scanning to ensure compliance with best practices.
+        </p>
       </div>
     </details>
   </main>
 
   <script src="../assets/js/nav-menu.js"></script>
+
+  <div class="sticker-container">
+    <img src="https://www.stickersplt.com.ua/wp-content/uploads/2025/03/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B8-1_0007_Group-of-2-Objects-7.png" alt="Screaming Cat Sticker">
+  </div>
 
 </body>
 </html>

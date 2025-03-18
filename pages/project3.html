@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 3 – Performance & Security Testing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+
+  <!-- Header -->
+  <header class="flex items-center justify-center text-center">
+    <h1 class="text-4xl font-bold text-white p-4">Project 3: Performance & Security Testing</h1>
+  </header>
+
+  <!-- Dropdown Navigation -->
+  <nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
+    <div class="flex justify-center">
+      <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+    <div id="dropdown-menu" class="hidden grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-4">
+      <a href="#overview" class="nav-btn"><i class="fas fa-info-circle"></i> Overview</a>
+      <a href="#test-env" class="nav-btn"><i class="fas fa-server"></i> Test Environment</a>
+      <a href="#test-cases" class="nav-btn"><i class="fas fa-clipboard-list"></i> Test Scenarios</a>
+      <a href="#performance-testing" class="nav-btn"><i class="fas fa-tachometer-alt"></i> Performance</a>
+      <a href="#security-testing" class="nav-btn"><i class="fas fa-shield-alt"></i> Security</a>
+      <a href="#api" class="nav-btn"><i class="fas fa-network-wired"></i> API Testing</a>
+      <a href="#database" class="nav-btn"><i class="fas fa-database"></i> DB Testing</a>
+      <a href="#regression" class="nav-btn"><i class="fas fa-sync-alt"></i> Regression</a>
+      <a href="#automation" class="nav-btn"><i class="fas fa-robot"></i> Automation</a>
+      <a href="#prod-monitoring" class="nav-btn"><i class="fas fa-chart-line"></i> Monitoring</a>
+      <a href="#bug-reports" class="nav-btn"><i class="fas fa-bug"></i> Bug Reports</a>
+      <a href="#screenshots" class="nav-btn"><i class="fas fa-images"></i> Screenshots</a>
+      <a href="#conclusions" class="nav-btn"><i class="fas fa-check-circle"></i> Summary</a>
+    </div>
+  </nav>
+
+
+  <!-- Main content -->
+  <main class="max-w-5xl mx-auto p-6 space-y-6">
+    
+    <!-- OVERVIEW -->
+    <section id="overview" class="bg-gray-800 p-4 rounded">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-2">Overview</h2>
+      
+      <!-- Executive Summary -->
+      <p class="text-sm mb-4 bg-gray-700 p-2 rounded">
+        <strong>Executive Summary:</strong> This project tests a <em>microservices-based Payment Application</em> focusing on <strong>Performance</strong> (JMeter) and <strong>Security</strong> (OWASP ZAP). We also verify <strong>API endpoints</strong> with Postman and ensure <strong>DB integrity</strong> in PostgreSQL.  
+        <br>
+        Current Status: <span style="color: orange;">Ongoing</span> – Additional scaling scenarios and advanced security checks planned for <span style="color: orange;"><<PLACEHOLDER Q2 2024>></span>.
+      </p>
+
+      <p class="text-lg leading-relaxed">
+        In this project, I tested a microservices-based Payment Application with a focus on 
+        <strong>Performance</strong> and <strong>Security</strong>. The application consists of:
+        <ul class="list-disc list-inside mt-2">
+          <li><strong>Auth Service</strong> – for user registration and authentication</li>
+          <li><strong>Payment Service</strong> – processes transactions, payments, and refunds</li>
+          <li><strong>Order Service</strong> – manages orders and integrates with Payment Service</li>
+        </ul>
+        The goal was to ensure the system handles high user load and remains secure against common vulnerabilities.
+      </p>
+    </section>
+
+    <!-- TEST ENVIRONMENT -->
+    <details id="test-env">
+      <summary>Test Environment</summary>
+      <div class="mt-4">
+        <p><strong>Deployment:</strong> Docker Compose (3 separate containers for Auth, Payment, Order services)</p>
+        <p><strong>Environment Details:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Auth Service:</strong> Node.js (Port 4001)</li>
+          <li><strong>Payment Service:</strong> Java Spring Boot (Port 4002)</li>
+          <li><strong>Order Service:</strong> Python Flask (Port 4003)</li>
+          <li><strong>Database:</strong> PostgreSQL (Port 5432)</li>
+          <li><strong>Reverse Proxy (Nginx):</strong> Single entry point on <code>http://localhost:8080</code></li>
+        </ul>
+
+        <p><strong>Tools Used:</strong></p>
+        <ul class="list-disc list-inside">
+          <li>JMeter (Performance Testing)</li>
+          <li>OWASP ZAP (Security Testing)</li>
+          <li>Postman (API Testing)</li>
+          <li>DBeaver (DB verification)</li>
+          <li>GitHub Actions (CI/CD for test automation)</li>
+        </ul>
+        <p>
+          <strong>Source/Commit:</strong> 
+          <span style="color: orange;"><<PLACEHOLDER COMMIT or Repo Link>></span>
+        </p>
+      </div>
+    </details>
+
+    <!-- TEST SCENARIOS -->
+    <details id="test-cases">
+      <summary>Test Scenarios</summary>
+      <div class="mt-4">
+        <p><strong>Key Functional Scenarios:</strong></p>
+        <ul class="list-disc list-inside">
+          <li>User Registration & Login (Auth Service)</li>
+          <li>Create Order & Payment (Order + Payment Service)</li>
+          <li>Refund / Cancel Payment</li>
+          <li>Check Order Status (end-to-end flow)</li>
+        </ul>
+        <p>
+          We also designed <strong>negligent/negative flows</strong> (e.g., invalid login, expired card) 
+          to ensure graceful error handling. Full test cases are provided in a separate documentation 
+          and partially shown in <a href="#bug-reports" class="text-blue-400 hover:text-blue-300">Bug Reports</a>.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Additional functional test details>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- PERFORMANCE TESTING -->
+    <details id="performance-testing">
+      <summary>Performance Testing</summary>
+      <div class="mt-4">
+        <p>
+          We used <strong>Apache JMeter</strong> to simulate concurrent users placing orders, making payments, 
+          and checking order status. The scenario included:
+        </p>
+        <ol class="list-decimal list-inside mb-4">
+          <li><strong>Login</strong> (Auth Service)</li>
+          <li><strong>Create Order</strong> (Order Service) with random product data</li>
+          <li><strong>Pay</strong> (Payment Service) with valid/invalid card details</li>
+          <li><strong>Check Order Status</strong> (Order Service) to confirm success or failure</li>
+        </ol>
+
+        <p><strong>Load Profile:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>100 to 500 concurrent users over 5-minute ramp-up</li>
+          <li>Peak load of 500 users for 10 minutes</li>
+          <li>Spike test with sudden jump from 100 to 500 users in 30 seconds</li>
+        </ul>
+
+        <p><strong>Performance Metrics (Highlights):</strong></p>
+        <ul class="list-disc list-inside">
+          <li><strong>Average Response Time:</strong> ~1.2s under 300 users, up to 2.5s at 500 users</li>
+          <li><strong>90th Percentile RT:</strong> 3.0s at peak load</li>
+          <li><strong>Error Rate:</strong> ~2% at 500 users (mostly due to Payment timeouts)</li>
+          <li><strong>Throughput:</strong> ~600 requests/second at peak</li>
+        </ul>
+
+        <p><strong>Analysis:</strong> 
+          The system remained stable up to 400 users with <1.5s average response time. 
+          Above 400, some Payment Service timeouts occurred. 
+          Further optimization needed in Payment Service’s DB queries.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Link to JMeter scripts or results>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- SECURITY TESTING -->
+    <details id="security-testing">
+      <summary>Security Testing</summary>
+      <div class="mt-4">
+        <p>
+          We conducted a <strong>basic security assessment</strong> using <strong>OWASP ZAP</strong> 
+          to identify common vulnerabilities (OWASP Top 10). Key focus areas:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>SQL Injection:</strong> Tested login forms and payment endpoints for injection vectors.</li>
+          <li><strong>XSS (Cross-Site Scripting):</strong> Checked user input fields in the Order Service for improper sanitization.</li>
+          <li><strong>Authentication & Session Management:</strong> Verified secure cookies (HttpOnly, Secure flags) and session timeout policies.</li>
+          <li><strong>API Tokens:</strong> Payment requests require a valid JWT. Ensured expired tokens are rejected.</li>
+        </ul>
+
+        <p><strong>Findings:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Order Service (Low Risk):</strong> One reflected XSS alert in the search parameter, but no real exploit found. 
+            <em>Mitigation:</em> Proper URL encoding on the server side.</li>
+          <li><strong>Payment Service (Medium Risk):</strong> Cookie flag missing “Secure” for session cookie on staging environment. 
+            <em>Mitigation:</em> Set Secure and HttpOnly flags in production build.</li>
+          <li><strong>Auth Service (No High-Risk issues):</strong> All tokens validated properly, no injection vectors discovered.</li>
+        </ul>
+
+        <p>
+          Overall, the system was moderately secure; no critical vulnerabilities were identified, 
+          though minor improvements are needed in cookie configuration and input sanitization.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Link to OWASP ZAP full report>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- API TESTING -->
+    <details id="api">
+      <summary>API Testing</summary>
+      <div class="mt-4">
+        <p>
+          For functional verification of REST endpoints (Auth, Payment, Order), we used <strong>Postman</strong>:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Auth Service:</strong> <em>POST /api/auth/login</em>, <em>POST /api/auth/register</em></li>
+          <li><strong>Payment Service:</strong> <em>POST /api/payment/charge</em>, <em>POST /api/payment/refund</em></li>
+          <li><strong>Order Service:</strong> <em>POST /api/orders</em>, <em>GET /api/orders/{id}</em></li>
+        </ul>
+        <p>
+          We validated <strong>status codes</strong> (200, 201, 400, 401, etc.), 
+          <strong>JSON response structures</strong>, and negative scenarios 
+          (e.g., invalid tokens, insufficient account balance).
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Link to Postman Collection or tests>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- DB TESTING -->
+    <details id="database">
+      <summary>DB Testing</summary>
+      <div class="mt-4">
+        <p><strong>Database:</strong> PostgreSQL running in a Docker container.</p>
+        <p><strong>Key Checks:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>Upon new user registration, user record is created in <code>users</code> table (Auth DB).</li>
+          <li>When an order is placed, an entry in <code>orders</code> table, referencing <code>users.id</code>.</li>
+          <li>Payments recorded in <code>transactions</code> table with correct <code>order_id</code>, <code>status</code>, and <code>amount</code>.</li>
+        </ul>
+        <p>
+          We ran <strong>SQL queries</strong> via DBeaver to ensure data integrity, 
+          foreign key constraints, and that rollback/commit behave correctly after a failed payment.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Additional DB insights>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- REGRESSION -->
+    <details id="regression">
+      <summary>Regression</summary>
+      <div class="mt-4">
+        <p>
+          After each new feature or bug fix, we performed a <strong>partial regression</strong> 
+          on affected services (e.g., updating Payment logic triggers re-testing Payment + Order flows). 
+        </p>
+        <p>
+          A <strong>smoke suite</strong> runs automatically on new Docker builds (Auth login, basic order creation). 
+          Periodically, a <strong>full regression</strong> covers all endpoints and cross-service integration scenarios.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Future advanced regression plan>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- AUTOMATION -->
+    <details id="automation">
+      <summary>Automation</summary>
+      <div class="mt-4">
+        <p><strong>CI/CD:</strong> We set up <strong>GitHub Actions</strong> to run automated checks on each commit.</p>
+        <ul class="list-disc list-inside mb-4">
+          <li><strong>Functional Tests:</strong> Postman collections + Newman in the CI pipeline.</li>
+          <li><strong>Performance Tests:</strong> JMeter scripts triggered via a separate Jenkins job (due to heavier resource usage).</li>
+          <li><strong>Security Checks:</strong> OWASP ZAP baseline scan integrated in the nightly build.</li>
+        </ul>
+        <p>
+          <strong>Benefits:</strong> Immediate feedback on broken endpoints or performance regressions. 
+          We only deploy to staging if the pipeline is fully green.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Link to GitHub Actions or Jenkins logs>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- PROD MONITORING -->
+    <details id="prod-monitoring">
+      <summary>Monitoring</summary>
+      <div class="mt-4">
+        <p><strong>Tools:</strong> Prometheus + Grafana for metrics, Kibana for logs</p>
+        <p><strong>Key Metrics Tracked:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>CPU / Memory usage of each container</li>
+          <li>Response Time / Error Rates from Payment and Order services</li>
+          <li>Number of successful vs failed transactions</li>
+        </ul>
+        <p>
+          Alerts are configured if error rates exceed 5% or CPU usage stays above 80% 
+          for more than 5 minutes. This helps promptly detect production incidents 
+          related to spikes in traffic or memory leaks.
+        </p>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Additional monitoring enhancements>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- BUG REPORTS -->
+    <details id="bug-reports">
+      <summary>Bug Reports</summary>
+      <div class="mt-4">
+        <!-- EXAMPLE BUG 1 -->
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-001: Payment Timeout at 400+ Users (Performance)
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: red;">High</span></p>
+            <p><strong>Description:</strong> 
+              At ~400 concurrent users, the Payment Service occasionally times out, returning 504 Gateway Timeout.
+            </p>
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Run JMeter test with 400+ threads ramped up within 2 minutes.</li>
+              <li>Observe Payment requests failing with 504 errors in the logs.</li>
+            </ol>
+            <p><strong>Expected Result:</strong> 
+              System should handle up to 500 users without timeouts or degrade gracefully.
+            </p>
+            <p><strong>Environment:</strong> Docker-based microservices (staging).
+            </p>
+            <p><strong>Attachments:</strong> 
+              <a href="img/bug-001-screenshot.png" target="_blank">JMeter Graph Screenshot</a>
+            </p>
+          </div>
+        </details>
+
+        <!-- EXAMPLE BUG 2 -->
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-002: Missing Secure Flag on Payment Cookies (Security)
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: orange;">Medium</span></p>
+            <p><strong>Description:</strong> 
+              Payment session cookies do not have the <code>Secure</code> attribute set on the staging environment.
+            </p>
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Use OWASP ZAP to spider the Payment Service login flow.</li>
+              <li>Check the “Set-Cookie” header in the response. The flag “Secure” is missing.</li>
+            </ol>
+            <p><strong>Expected Result:</strong> 
+              All session cookies must have “Secure” and “HttpOnly” set, especially in production.
+            </p>
+            <p><strong>Environment:</strong> Docker-based microservices (staging).
+            </p>
+            <p><strong>Attachments:</strong> 
+              <a href="img/bug-002-screenshot.png" target="_blank">OWASP ZAP Report Excerpt</a>
+            </p>
+          </div>
+        </details>
+
+        <p>
+          Additional issues are tracked in JIRA: 
+          <a href="https://your-jira-site/browse/PROJECT3" target="_blank" class="text-blue-400 hover:text-blue-300">View Jira Board</a>.
+        </p>
+      </div>
+    </details>
+
+    <!-- SCREENSHOTS -->
+    <details id="screenshots">
+      <summary>Screenshots</summary>
+      <div class="mt-4">
+        <p>
+          Below are some key screenshots and evidence of test execution. Click each link for full-size images:
+        </p>
+        <ul class="list-disc list-inside">
+          <li><a href="img/jmeter-summary-report.png" target="_blank" class="text-blue-400 hover:text-blue-300">JMeter Summary Report</a></li>
+          <li><a href="img/owasp-zap-alerts.png" target="_blank" class="text-blue-400 hover:text-blue-300">OWASP ZAP Alerts</a></li>
+          <li><a href="img/grafana-dashboard.png" target="_blank" class="text-blue-400 hover:text-blue-300">Grafana Dashboard Metrics</a></li>
+        </ul>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            <span style="color: orange;"><<PLACEHOLDER Real logs or advanced screenshots>></span>
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- CONCLUSIONS -->
+    <details id="conclusions">
+      <summary>Summary</summary>
+      <div class="mt-4">
+        <p>
+          Overall, the microservices handled up to ~400 concurrent users smoothly. 
+          Beyond that, Payment Service faced timeout issues (needs optimization or scaling).
+        </p>
+        <p>
+          Security scans revealed mostly low/medium vulnerabilities, such as missing 
+          <code>Secure</code> cookie flags and minor XSS vectors, but no critical flaws.
+        </p>
+        <p>
+          Future enhancements include load balancing for Payment Service, 
+          improved caching for Order Service, and stricter cookie policies in production.
+        </p>
+      </div>
+    </details>
+  </main>
+
+  <script src="../assets/js/nav-menu.js"></script>
+
+  <div class="sticker-container">
+    <img src="https://www.stickersplt.com.ua/wp-content/uploads/2025/03/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B8-1_0007_Group-of-2-Objects-7.png" alt="Screaming Cat Sticker">
+  </div>
+
+</body>
+</html>

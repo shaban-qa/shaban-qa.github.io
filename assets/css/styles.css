@@ -29,6 +29,10 @@ header p {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
+.highlight-name {
+  color: #FBBF24; 
+}
+
 /* Styles for index.html */
 .nav-button {
   background-color: #2C3E50;
@@ -158,6 +162,26 @@ details > div {
   color: #ddd;
   animation: sweep 0.3s ease-in-out;
 }
+
+.sticker-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.sticker-container img {
+  width: 120px; 
+  height: auto;
+  border: none; 
+  box-shadow: none; 
+  border-radius: 0; 
+}
+
+.sticker-container img:hover {
+  transform: scale(1.2);
+}
+
 @keyframes sweep {
   0% {opacity: 0; margin-top: -5px;}
   100% {opacity: 1; margin-top: 0;}

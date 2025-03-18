@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 2 – Mobile To-Do App QA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+
+  <!-- Header -->
+  <header class="flex items-center justify-center text-center">
+    <h1 class="text-4xl font-bold text-white p-4">Project 2: Mobile To-Do App QA</h1>
+  </header>
+
+  <!-- Dropdown Navigation -->
+  <nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
+    <div class="flex justify-center">
+      <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+    <div id="dropdown-menu" class="hidden grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-4">
+      <a href="#overview" class="nav-btn">
+        <i class="fas fa-info-circle"></i> Overview
+      </a>
+      <a href="#test-env" class="nav-btn">
+        <i class="fas fa-server"></i> Test Environment
+      </a>
+      <a href="#test-cases" class="nav-btn">
+        <i class="fas fa-clipboard-list"></i> Test Cases
+      </a>
+      <a href="#api" class="nav-btn">
+        <i class="fas fa-network-wired"></i> API Testing
+      </a>
+      <a href="#database" class="nav-btn">
+        <i class="fas fa-database"></i> DB Testing
+      </a>
+      <a href="#regression" class="nav-btn">
+        <i class="fas fa-sync-alt"></i> Regression
+      </a>
+      <a href="#automation" class="nav-btn">
+        <i class="fas fa-robot"></i> Automation
+      </a>
+      <a href="#prod-monitoring" class="nav-btn">
+        <i class="fas fa-chart-line"></i> Prod Monitoring
+      </a>
+      <a href="#bug-reports" class="nav-btn">
+        <i class="fas fa-bug"></i> Bug Reports
+      </a>
+      <a href="#screenshots" class="nav-btn">
+        <i class="fas fa-images"></i> Screenshots
+      </a>
+      <a href="#conclusions" class="nav-btn">
+        <i class="fas fa-check-circle"></i> Summary
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="max-w-5xl mx-auto p-6 space-y-6">
+    
+    <!-- OVERVIEW -->
+    <section id="overview" class="bg-gray-800 p-4 rounded">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-2">Overview</h2>
+      
+      <!-- Short Executive Summary -->
+      <p class="text-sm mb-4 bg-gray-700 p-2 rounded">
+        <strong>Executive Summary:</strong> This project focuses on testing a <em>React Native To-Do Application</em> across <strong>Android and iOS</strong> devices. Main areas include <strong>task creation, editing, reminders</strong>, and <strong>cloud sync</strong> with Firebase. Basic <strong>Appium</strong> automation is implemented for Android; iOS remains mostly manual.  
+        <br>
+        Current Status: <span style="color: orange;">In Progress</span> — Additional performance checks for large data sets (1000+ tasks) planned for 
+        <span style="color: orange;"><<PLACEHOLDER Q2 2024>></span>.
+      </p>
+
+      <p class="text-lg leading-relaxed">
+        This project involves testing a <strong>Mobile To-Do Application</strong> 
+        that allows users to create, edit, and delete tasks, set reminders, and sync 
+        tasks across multiple devices. The primary goal is to ensure seamless user experience,
+        proper data handling, and stable performance on Android and iOS.
+      </p>
+    </section>
+
+    <!-- TEST ENVIRONMENT -->
+    <details id="test-env">
+      <summary>Test Environment</summary>
+      <div class="mt-4">
+        <p><strong>Devices & Platforms:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>Android 11 (Samsung Galaxy S10) real device</li>
+          <li>Android Emulator (Pixel 3, Android 12)</li>
+          <li>iPhone 12, iOS 15 (real device)</li>
+          <li>iOS Simulator (Xcode 13)</li>
+        </ul>
+        <p><strong>Tools & Setup:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>ADB / Xcode CLI for installing and debugging apps</li>
+          <li>Postman for backend API testing (sync endpoints)</li>
+          <li>SQLite DB (on-device) and Firebase (cloud sync)</li>
+          <li>JIRA for bug tracking</li>
+        </ul>
+        <p>
+          The app is built in React Native, connecting to a Node.js + Firebase backend 
+          for data persistence and push notifications.
+        </p>
+        <p>
+          <strong>Source Code:</strong> 
+          <span style="color: orange;"><<PLACEHOLDER GitHub Repo Link>></span>  
+          (private or under development).
+        </p>
+      </div>
+    </details>
+
+    <!-- TEST CASES -->
+    <details id="test-cases">
+      <summary>Test Cases</summary>
+      <div class="mt-4">
+        <details>
+          <summary>TC-001: Create a New Task (Positive)</summary>
+          <div class="mt-2">
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Open the To-Do app.</li>
+              <li>Tap the "Add Task" button.</li>
+              <li>Enter a title (e.g., "Grocery Shopping") and optional description.</li>
+              <li>Set a due date and tap "Save".</li>
+            </ol>
+            <p><strong>Expected:</strong> The new task appears in the list with correct title/date.</p>
+            <p><strong>Status:</strong> Pass</p>
+          </div>
+        </details>
+        
+        <details>
+          <summary>TC-002: Create Task with Empty Title (Negative)</summary>
+          <div class="mt-2">
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Open the To-Do app.</li>
+              <li>Tap "Add Task".</li>
+              <li>Leave title blank, enter optional description.</li>
+              <li>Try to save the task.</li>
+            </ol>
+            <p><strong>Expected:</strong> An error message "Title is required" is displayed. Task is not created.</p>
+            <p><strong>Status:</strong> Pass</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>TC-003: Edit Existing Task</summary>
+          <div class="mt-2">
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Select an existing task from the list.</li>
+              <li>Tap "Edit". Change the title, date, or description.</li>
+              <li>Tap "Save".</li>
+            </ol>
+            <p><strong>Expected:</strong> Task updates with the new data, and changes persist after app reload.</p>
+            <p><strong>Status:</strong> Pass</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>TC-004: Mark Task as Completed</summary>
+          <div class="mt-2">
+            <p><strong>Steps:</strong></p>
+            <ol class="list-decimal list-inside">
+              <li>Tap the checkbox icon next to a task.</li>
+              <li>Confirm that the task moves to the "Completed" section or changes appearance.</li>
+            </ol>
+            <p><strong>Expected:</strong> Task is visually indicated as completed; remains in completed state upon refresh.</p>
+            <p><strong>Status:</strong> Pass</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- API TESTING -->
+    <details id="api">
+      <summary>API Testing</summary>
+      <div class="mt-4">
+        <p>
+          The app syncs tasks with a Node.js + Firebase backend. We tested the 
+          <em>/sync</em> and <em>/tasks</em> endpoints via Postman:
+        </p>
+        <details>
+          <summary>POST /api/tasks (Add new task)</summary>
+          <div class="mt-2">
+            <p><strong>Request:</strong> JSON body with <code>title</code>, <code>description</code>, <code>dueDate</code>.</p>
+            <p><strong>Expected:</strong> 201 Created, returns JSON with <code>taskId</code> and <code>createdAt</code>.</p>
+            <p><strong>Result:</strong> Pass</p>
+          </div>
+        </details>
+        <details>
+          <summary>GET /api/tasks (Get user tasks)</summary>
+          <div class="mt-2">
+            <p><strong>Expected:</strong> 200 OK, an array of tasks for the current user.</p>
+            <p><strong>Negative Test:</strong> If invalid token, return 401 Unauthorized.</p>
+            <p><strong>Result:</strong> Pass</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- DB TESTING -->
+    <details id="database">
+      <summary>DB Testing</summary>
+      <div class="mt-4">
+        <p><strong>Local DB (SQLite):</strong> For offline mode, tasks are stored locally in an SQLite database. 
+           On app launch, we verify the existence of the <code>tasks</code> table with correct schema.</p>
+        <details>
+          <summary>Check local tasks table after adding a new task</summary>
+          <div class="mt-2">
+            <p><strong>Query:</strong> <code>SELECT title, due_date FROM tasks WHERE title='Grocery Shopping';</code></p>
+            <p><strong>Expected:</strong> One row with the correct <code>title</code>, <code>due_date</code>.</p>
+            <p><strong>Result:</strong> Pass</p>
+          </div>
+        </details>
+        <p class="mt-4"><strong>Cloud DB (Firebase):</strong> Verified that after successful sync, tasks appear in the user’s Firebase collection.  
+          <br>
+          <span style="color: orange;"><<PLACEHOLDER: Additional detail on Firestore schemas>></span>
+        </p>
+      </div>
+    </details>
+
+    <!-- REGRESSION -->
+    <details id="regression">
+      <summary>Regression</summary>
+      <div class="mt-4">
+        <p>
+          After each new feature (e.g., push notifications, tag-based categorization), 
+          we run a <strong>smoke test</strong> on critical flows (Create/Edit tasks, Sync).
+        </p>
+        <p>
+          A <strong>partial regression</strong> covers functionalities closely linked to the updated module (e.g., 
+          changes to "Completed tasks" triggers re-testing of marking tasks done, re-testing sync behavior, etc.).
+        </p>
+        <p>
+          Future plan: <span style="color: orange;"><<PLACEHOLDER for advanced regression approach>></span>
+        </p>
+      </div>
+    </details>
+
+    <!-- AUTOMATION -->
+    <details id="automation">
+      <summary>Automation</summary>
+      <div class="mt-4">
+        <p>
+          We implemented a basic <strong>Appium</strong> suite for Android to automate 
+          crucial test flows (create task, edit task, mark completed). For iOS, 
+          manual testing was performed due to limited device availability.
+        </p>
+        <p><strong>CI/CD Integration:</strong></p>
+        <ul class="list-disc list-inside mb-4">
+          <li>GitHub Actions triggers the Appium suite on each pull request (Android Emulator).</li>
+          <li>Postman tests for the API run via Newman in the same pipeline.</li>
+        </ul>
+        <p>
+          This setup ensures that critical regressions are caught before merging code changes.
+          <br>
+          <span style="color: orange;"><<PLACEHOLDER: Link to GitHub Actions logs or Jenkins job>></span>
+        </p>
+      </div>
+    </details>
+
+    <!-- PROD MONITORING -->
+    <details id="prod-monitoring">
+      <summary>Prod Monitoring</summary>
+      <div class="mt-4">
+        <p>
+          We use <strong>Firebase Crashlytics</strong> to gather crash reports on production devices. 
+          Also, <strong>Google Analytics for Firebase</strong> helps track performance metrics (app start time, 
+          network calls, etc.).
+        </p>
+        <p><strong>Alerts:</strong> 
+          Set up Slack notifications when a surge in crashes is detected or if network requests exceed 5 seconds average.
+        </p>
+        <p>
+          <strong>Future Monitoring Plans:</strong> 
+          <span style="color: orange;"><<PLACEHOLDER: e.g., real-time logs, Sentry integration>></span>
+        </p>
+      </div>
+    </details>
+
+    <!-- BUG REPORTS -->
+    <details id="bug-reports">
+      <summary>Bug Reports</summary>
+      <div class="mt-4">
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-001: App Crash on Editing Task Offline
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: red;">High</span></p>
+            <p><strong>Description:</strong> When device is offline, editing an existing task leads to an immediate app crash on some Android devices.</p>
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Disable Wi-Fi/data on the device.</li>
+              <li>Open the app and select an existing task.</li>
+              <li>Tap "Edit", change the title.</li>
+              <li>Tap "Save" & observe the crash.</li>
+            </ol>
+            <p><strong>Environment:</strong> Android 11, v1.2.0 of the app.</p>
+            <p><strong>Expected Result:</strong> Changes are saved locally and later synced when online, no crash.</p>
+            <p><strong>Attachments:</strong> <a href="img/bug001_screenshot.png" target="_blank">Logcat Output</a></p>
+          </div>
+        </details>
+
+        <details style="
+          border: 1px solid #2C3E50;
+          background-color: #1f1f1f;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          border-radius: 8px;">
+          <summary style="font-size: 1.25rem; margin-bottom: 0.5rem; cursor: pointer;">
+            BUG-002: Missing Reminder Notification iOS
+          </summary>
+          <div style="margin-top: 0.5rem;">
+            <p><strong>Status:</strong> <span style="color: orange;">Open</span></p>
+            <p><strong>Priority:</strong> <span style="color: orange;">Medium</span></p>
+            <p><strong>Description:</strong> Reminders do not appear for tasks on iOS if the app is not in foreground.</p>
+            <p><strong>Steps to Reproduce:</strong></p>
+            <ol class="list-decimal list-inside" style="margin-left: 1rem;">
+              <li>Open the app on iPhone 12, create a task with a reminder time ~2 min in future.</li>
+              <li>Close the app (swipe up) & wait.</li>
+              <li>No notification is received at the specified reminder time.</li>
+            </ol>
+            <p><strong>Environment:</strong> iOS 15, v1.2.0 of the app.</p>
+            <p><strong>Expected Result:</strong> Local or push notification should appear even if the app is in the background.</p>
+            <p><strong>Attachments:</strong> <a href="img/bug002_screenshot.png" target="_blank">Screenshot of Notification Settings</a></p>
+          </div>
+        </details>
+
+        <p>
+          More issues tracked in JIRA: 
+          <a href="https://your-jira-site/browse/MOBILETODO" target="_blank" class="text-blue-400 hover:text-blue-300">View JIRA Board</a>
+        </p>
+      </div>
+    </details>
+
+    <!-- SCREENSHOTS -->
+    <details id="screenshots">
+      <summary>Screenshots</summary>
+      <div class="mt-4">
+        <p><strong>Proof of Testing:</strong></p>
+        <ul class="list-disc list-inside">
+          <li><a href="img/appium_test_run.png" target="_blank" class="text-blue-400 hover:text-blue-300">Appium Test Run</a></li>
+          <li><a href="img/postman_collections.png" target="_blank" class="text-blue-400 hover:text-blue-300">Postman Collections</a></li>
+          <li><a href="img/sqlite_db_view.png" target="_blank" class="text-blue-400 hover:text-blue-300">SQLite DB View</a></li>
+        </ul>
+        <p class="text-sm text-gray-400 mt-2">
+          <em>
+            Some screenshots are placeholders; real logs will be added once 
+            <span style="color: orange;"><<PLACEHOLDER Milestone or Date>></span> is reached.
+          </em>
+        </p>
+      </div>
+    </details>
+
+    <!-- CONCLUSIONS -->
+    <details id="conclusions">
+      <summary>Summary</summary>
+      <div class="mt-4">
+        <p>
+          Overall, the mobile To-Do app meets most functional requirements, with tasks smoothly created, edited, and synced across devices. 
+          The offline crash (BUG-001) and iOS reminders issue (BUG-002) remain open but are being addressed in the next sprint.
+        </p>
+        <p>
+          Future improvements include refining push notification handling on iOS and implementing automated iOS tests with Appium or XCUITest. 
+          Also, performance under large data sets (1000+ tasks) will be evaluated in an upcoming release.
+        </p>
+      </div>
+    </details>
+  </main>
+
+  <script src="../assets/js/nav-menu.js"></script>
+
+  <div class="sticker-container">
+    <img 
+      src="https://www.stickersplt.com.ua/wp-content/uploads/2025/03/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B8-1_0007_Group-of-2-Objects-7.png" 
+      alt="Screaming Cat Sticker"
+    />
+  </div>
+
+</body>
+</html>
