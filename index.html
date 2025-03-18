@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mykhailo Shaban QA Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Styles for the header with background image */
+    header {
+      background-image: url('https://www.clevtecservices.co.uk/Content/Images/inner-header-page-header-slim.png'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Optional parallax effect */
+      position: relative;
+      height: 30vh; /* Header height takes up 30% of the screen height */
+      width: 100%; /* Full width of the screen */
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for contrast */
+    }
+
+    /* Styles for navigation buttons */
+    .nav-button {
+      background-color: #2C3E50; /* Muted blue */
+      color: #F0F4F8; /* Light text */
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem; /* Increased space between icon and text */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+    .nav-button:hover {
+      transform: scale(1.1); /* Slightly bigger on hover */
+      background-color: #34495E; /* Lighter blue on hover */
+      color: #FFFFFF; /* Brighter white on hover */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+    }
+
+    /* Highlighted subheadings */
+    .subheading {
+      color: #FBBF24; /* Yellow-400 for highlighting */
+      font-weight: bold;
+      border-bottom: 2px solid #FBBF24; /* Thin underline for structure */
+      padding-bottom: 0.25rem; /* Space between text and underline */
+      display: inline-block; /* To apply border-bottom correctly */
+    }
+
+    /* Custom color for all links */
+    a {
+      color: #60A5FA; /* Blue-400 for all links */
+    }
+    a:hover {
+      color: #93C5FD; /* Blue-300 on hover */
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 768px) {
+      header {
+        background-attachment: scroll; /* Disable fixed background on mobile */
+      }
+      .nav-button {
+        margin: 0.25rem; /* Smaller margins for mobile */
+      }
+    }
+
+    /* Enhanced navigation section */
+    nav {
+      padding: 1rem 0; /* Increase padding for more space */
+      background-color: #2C3E50; /* Same muted blue for navigation background */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow on nav bar */
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+  <!-- Header with background image -->
+  <header class="text-white py-16 text-center">
+    <h1 class="text-4xl font-bold">Hello! I'm Mykhailo Shaban — QA Engineer</h1>
+    <p class="text-xl mt-4">Manual & Automation QA</p>
+  </header>
+
+  <!-- Navigation with custom buttons and icons -->
+  <nav class="flex justify-center items-center">
+    <ul class="flex space-x-6">
+      <li>
+        <a href="#about" class="nav-button">
+          <i class="fas fa-user"></i> About Me
+        </a>
+      </li>
+      <li>
+        <a href="#education" class="nav-button">
+          <i class="fas fa-graduation-cap"></i> Education & Skills
+        </a>
+      </li>
+      <li>
+        <a href="#contacts" class="nav-button">
+          <i class="fas fa-phone-alt"></i> Contacts
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <!-- About Me Section -->
+    <section id="about" class="bg-gray-800 p-8 rounded-lg mb-12">
+      <h2 class="text-3xl font-semibold text-yellow-400 mb-6">About Me</h2>
+      <p class="text-lg leading-relaxed">
+        Hello! I am a detail-oriented and proactive QA Manual Tester with a solid foundation in software testing principles and methodologies. Proficient in creating and executing test cases, identifying bugs, and ensuring the delivery of high-quality software. Experienced in functional, regression, and API testing with a focus on user-centric approaches. I completed a comprehensive QA Manual course at Hillel IT School and gained practical experience in static and dynamic testing, utilizing various test design techniques, as well as in the creation and analysis of test documentation.
+      </p>
+    </section>
+
+    <!-- Education & Skills Section -->
+    <section id="education" class="bg-gray-800 p-8 rounded-lg mb-12">
+      <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Education & Skills</h2>
+      <div class="mb-6">
+        <h3 class="subheading text-xl mb-4">Education</h3>
+        <p class="text-lg mt-2">
+          <strong>
+            <a href="https://certificate.ithillel.ua/view/73781167" target="_blank" class="text-blue-400 hover:text-blue-300">QA Manual Certification</a>
+          </strong> — Hillel IT School
+        </p>
+        <p class="text-gray-400">01/09/2024 – 20/02/2025 | Ukraine</p>
+        <p class="text-gray-400">Field: Information and Communication Technologies: Software and Applications Development and Analysis</p>
+        <p class="text-gray-400">Final Grade: Excellent | EQF Level: 5</p>
+        <p class="text-gray-400">Website: <a href="https://itukraine.org.ua/en/partners/hillel-it-school/" target="_blank" class="text-blue-400 hover:text-blue-300">Hillel IT School</a></p>
+      </div>
+      <div class="mb-6">
+        <h3 class="subheading text-xl mb-4">Technical Skills</h3>
+        <ul class="list-disc list-inside text-lg text-gray-300">
+          <li>SDLC, STLC, Test Cases, Bug Reports</li>
+          <li>Tools: JIRA, TestRail, Zephyr Scale</li>
+          <li>Web and Mobile Testing</li>
+          <li>API Testing (Postman)</li>
+          <li>Basic knowledge of HTML/CSS, Python, JavaScript, Git, SQL</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subheading text-xl mb-4">Language Skills</h3>
+        <p class="text-lg text-gray-300"><strong>Mother tongue:</strong> Ukrainian</p>
+        <p class="text-lg text-gray-300"><strong>English:</strong> Listening B2, Reading B2, Writing B1, Spoken Production B2, Spoken Interaction B2</p>
+        <p class="text-lg text-gray-300"><strong>Polish:</strong> Listening B1, Reading B1, Writing A1, Spoken Production B1, Spoken Interaction B1</p>
+        <p class="text-lg text-gray-300"><strong>Russian:</strong> Listening C1, Reading C1, Writing C1, Spoken Production C1, Spoken Interaction C1</p>
+        <p class="text-gray-400 text-sm">Levels: A1 and higher</p>
+      </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="bg-gray-800 p-8 rounded-lg mb-12">
+      <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Contacts</h2>
+      <p class="text-lg mb-2">
+        <i class="fas fa-envelope mr-2 text-yellow-400"></i> Email: <a href="mailto:Mykhailo.Shaban92@gmail.com" class="text-blue-400 hover:text-blue-300">palskifskiy@gmail.com</a>
+      </p>
+      <p class="text-lg mb-2">
+        <i class="fas fa-phone-alt mr-2 text-yellow-400"></i> Phone: <a href="tel:+380661004604" class="text-blue-400 hover:text-blue-300">+31613095656</a>
+      </p>
+      <p class="text-lg mb-2">
+        <i class="fab fa-linkedin mr-2 text-yellow-400"></i> LinkedIn: <a href="https://www.linkedin.com/in/mykhailo-shaban/" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
+      </p>
+      <p class="text-lg mb-2">
+        <i class="fab fa-github mr-2 text-yellow-400"></i> GitHub: <a href="https://github.com/MykhailoShaban" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>
