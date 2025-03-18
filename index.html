@@ -7,114 +7,42 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Styles for the header with background image */
-    header {
-      background-image: url('https://www.clevtecservices.co.uk/Content/Images/inner-header-page-header-slim.png'); /* Replace with your image path */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed; /* Optional parallax effect */
-      position: relative;
-      height: 30vh; /* Header height takes up 30% of the screen height */
-      width: 100%; /* Full width of the screen */
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
-      z-index: 1;
-    }
-    header h1, header p {
-      position: relative;
-      z-index: 2;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for contrast */
-    }
-
-    /* Styles for navigation buttons */
-    .nav-button {
-      background-color: #2C3E50; /* Muted blue */
-      color: #F0F4F8; /* Light text */
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem; /* Increased space between icon and text */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    }
-    .nav-button:hover {
-      transform: scale(1.1); /* Slightly bigger on hover */
-      background-color: #34495E; /* Lighter blue on hover */
-      color: #FFFFFF; /* Brighter white on hover */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
-    }
-
-    /* Highlighted subheadings */
-    .subheading {
-      color: #FBBF24; /* Yellow-400 for highlighting */
-      font-weight: bold;
-      border-bottom: 2px solid #FBBF24; /* Thin underline for structure */
-      padding-bottom: 0.25rem; /* Space between text and underline */
-      display: inline-block; /* To apply border-bottom correctly */
-    }
-
-    /* Custom color for all links */
-    a {
-      color: #60A5FA; /* Blue-400 for all links */
-    }
-    a:hover {
-      color: #93C5FD; /* Blue-300 on hover */
-    }
-
-    /* Media query for mobile devices */
-    @media (max-width: 768px) {
-      header {
-        background-attachment: scroll; /* Disable fixed background on mobile */
-      }
-      .nav-button {
-        margin: 0.25rem; /* Smaller margins for mobile */
-      }
-    }
-
-    /* Enhanced navigation section */
-    nav {
-      padding: 1rem 0; /* Increase padding for more space */
-      background-color: #2C3E50; /* Same muted blue for navigation background */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow on nav bar */
-    }
-  </style>
+  <!-- Підключення зовнішнього файлу стилів -->
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
-  <!-- Header with background image -->
+  <!-- Header -->
   <header class="text-white py-16 text-center">
-    <h1 class="text-4xl font-bold">Hello! I'm Mykhailo Shaban — QA Engineer</h1>
+    <h1 class="text-4xl font-bold">Hello 👋</h1>
+    <p class="text-3xl mt-4"><strong>I'm Mykhailo Shaban — QA Engineer</strong></p>
     <p class="text-xl mt-4">Manual & Automation QA</p>
+    <style>
+  .nav-button {
+    max-width: 500px;         /* або будь-яка ширина, яка тобі підходить */
+    width: 100%;
+    margin: 0 auto;           /* центруємо кнопки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
   </header>
 
-  <!-- Navigation with custom buttons and icons -->
-  <nav class="flex justify-center items-center">
-    <ul class="flex space-x-6">
-      <li>
-        <a href="#about" class="nav-button">
-          <i class="fas fa-user"></i> About Me
-        </a>
-      </li>
-      <li>
-        <a href="#education" class="nav-button">
-          <i class="fas fa-graduation-cap"></i> Education & Skills
-        </a>
-      </li>
-      <li>
-        <a href="#contacts" class="nav-button">
-          <i class="fas fa-phone-alt"></i> Contacts
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <!-- Dropdown Navigation -->
+<nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
+  <div class="flex justify-center">
+    <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div id="dropdown-menu" class="hidden grid grid-cols-2 gap-4 text-center mt-4">
+    <a href="#about" class="nav-button"><i class="fas fa-user"></i> About Me</a>
+    <a href="#education" class="nav-button"><i class="fas fa-graduation-cap"></i> Education & Skills</a>
+    <a href="#projects" class="nav-button"><i class="fas fa-briefcase"></i> Projects</a>
+    <a href="#contacts" class="nav-button"><i class="fas fa-phone-alt"></i> Contacts</a>
+  </div>
+</nav>
 
   <!-- Main content -->
   <main class="max-w-7xl mx-auto px-6 py-12">
@@ -122,7 +50,9 @@
     <section id="about" class="bg-gray-800 p-8 rounded-lg mb-12">
       <h2 class="text-3xl font-semibold text-yellow-400 mb-6">About Me</h2>
       <p class="text-lg leading-relaxed">
-        Hello! I am a detail-oriented and proactive QA Manual Tester with a solid foundation in software testing principles and methodologies. Proficient in creating and executing test cases, identifying bugs, and ensuring the delivery of high-quality software. Experienced in functional, regression, and API testing with a focus on user-centric approaches. I completed a comprehensive QA Manual course at Hillel IT School and gained practical experience in static and dynamic testing, utilizing various test design techniques, as well as in the creation and analysis of test documentation.
+        I am a detail-oriented and proactive QA Manual + Automation Tester with a solid foundation in software testing principles and methodologies. <br>
+        Proficient in creating and executing test cases, identifying bugs, and ensuring the delivery of high-quality software. Experienced in functional, regression, and API testing with a focus on user-centric approaches. <br>
+        I completed a comprehensive QA Manual course at Hillel IT School and gained practical experience in static and dynamic testing, utilizing various test design techniques, as well as in the creation and analysis of test documentation.
       </p>
     </section>
 
@@ -139,7 +69,22 @@
         <p class="text-gray-400">01/09/2024 – 20/02/2025 | Ukraine</p>
         <p class="text-gray-400">Field: Information and Communication Technologies: Software and Applications Development and Analysis</p>
         <p class="text-gray-400">Final Grade: Excellent | EQF Level: 5</p>
-        <p class="text-gray-400">Website: <a href="https://itukraine.org.ua/en/partners/hillel-it-school/" target="_blank" class="text-blue-400 hover:text-blue-300">Hillel IT School</a></p>
+        <p class="text-gray-400">
+          Website: <a href="https://itukraine.org.ua/en/partners/hillel-it-school/" target="_blank" class="text-blue-400 hover:text-blue-300">Hillel IT School</a>
+        </p>
+      </div>
+      <div class="mb-6">
+        <p class="text-lg mt-2">
+          <strong>
+            Kyiv National Linguistic University
+          </strong> — Arabic/English Language
+        </p>
+        <p class="text-gray-400">09/2013 – 06/2016 | Ukraine</p>
+        <p class="text-gray-400">Field: Philology, Arabic/English Language</p>
+        <p class="text-gray-400">Final Grade: Bachelor’s in Philology</p>
+        <p class="text-gray-400">
+          Website: <a href="https://knlu.edu.ua/en/" target="_blank" class="text-blue-400 hover:text-blue-300">Kyiv National Linguistic University</a>
+        </p>
       </div>
       <div class="mb-6">
         <h3 class="subheading text-xl mb-4">Technical Skills</h3>
@@ -154,10 +99,26 @@
       <div>
         <h3 class="subheading text-xl mb-4">Language Skills</h3>
         <p class="text-lg text-gray-300"><strong>Mother tongue:</strong> Ukrainian</p>
-        <p class="text-lg text-gray-300"><strong>English:</strong> Listening B2, Reading B2, Writing B1, Spoken Production B2, Spoken Interaction B2</p>
-        <p class="text-lg text-gray-300"><strong>Polish:</strong> Listening B1, Reading B1, Writing A1, Spoken Production B1, Spoken Interaction B1</p>
+        <p class="text-lg text-gray-300"><strong>English:</strong> Listening B1, Reading B1, Writing B2, Spoken Production B1, Spoken Interaction B1</p>
+        <p class="text-lg text-gray-300"><strong>Polish:</strong> Listening B1, Reading B2, Writing A1, Spoken Production B2, Spoken Interaction B2</p>
         <p class="text-lg text-gray-300"><strong>Russian:</strong> Listening C1, Reading C1, Writing C1, Spoken Production C1, Spoken Interaction C1</p>
         <p class="text-gray-400 text-sm">Levels: A1 and higher</p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-800 p-8 rounded-lg mb-12">
+      <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Tested Projects</h2>
+      <div class="flex flex-col md:flex-row gap-10 justify-center">
+        <a href="pages/project1.html" class="nav-button project-button text-3xl font-bold">
+          <i class="fas fa-code"></i> Project 1
+        </a>
+        <a href="project2.html" class="nav-button project-button text-3xl font-bold">
+          <i class="fas fa-code"></i> Project 2
+        </a>
+        <a href="project3.html" class="nav-button project-button text-3xl font-bold">
+          <i class="fas fa-code"></i> Project 3
+        </a>
       </div>
     </section>
 
@@ -165,18 +126,21 @@
     <section id="contacts" class="bg-gray-800 p-8 rounded-lg mb-12">
       <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Contacts</h2>
       <p class="text-lg mb-2">
-        <i class="fas fa-envelope mr-2 text-yellow-400"></i> Email: <a href="mailto:Mykhailo.Shaban92@gmail.com" class="text-blue-400 hover:text-blue-300">palskifskiy@gmail.com</a>
+        <i class="fas fa-envelope mr-2 text-yellow-400"></i> Email: <a href="mailto:palskifskiy@gmail.com" class="text-blue-400 hover:text-blue-300">palskifskiy@gmail.com</a>
       </p>
       <p class="text-lg mb-2">
         <i class="fas fa-phone-alt mr-2 text-yellow-400"></i> Phone: <a href="tel:+380661004604" class="text-blue-400 hover:text-blue-300">+31613095656</a>
       </p>
       <p class="text-lg mb-2">
-        <i class="fab fa-linkedin mr-2 text-yellow-400"></i> LinkedIn: <a href="https://www.linkedin.com/in/mykhailo-shaban/" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
+        <i class="fab fa-linkedin mr-2 text-yellow-400"></i> LinkedIn: <a href="https://www.linkedin.com/in/mykhailo-shaban-2a7332301/" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
       </p>
       <p class="text-lg mb-2">
-        <i class="fab fa-github mr-2 text-yellow-400"></i> GitHub: <a href="https://github.com/MykhailoShaban" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
+        <i class="fab fa-github mr-2 text-yellow-400"></i> GitHub: <a href="https://github.com/shaban-qa/" target="_blank" class="text-blue-400 hover:text-blue-300">Mykhailo Shaban</a>
       </p>
     </section>
   </main>
+
+  <script src="assets/js/nav-menu.js"></script>
+
 </body>
 </html>

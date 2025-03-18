@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1 – Full QA Testing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- External CSS file. Note: since this file is in the "pages" folder, the path is relative -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+
+  <!-- Header -->
+  <header class="flex items-center justify-center text-center">
+    <h1 class="text-4xl font-bold text-white p-4">Project 1: Full QA Testing</h1>
+  </header>
+
+  <!-- Dropdown Navigation -->
+<nav class="bg-gray-800 py-4 rounded sticky top-0 z-50">
+  <div class="flex justify-center">
+    <button id="dropdown-toggle" class="text-white text-2xl focus:outline-none">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div id="dropdown-menu" class="hidden grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-4">
+    <a href="#overview" class="nav-btn"><i class="fas fa-info-circle"></i> Overview</a>
+    <a href="#test-env" class="nav-btn"><i class="fas fa-server"></i> Test Environment</a>
+    <a href="#test-cases" class="nav-btn"><i class="fas fa-clipboard-list"></i> Test Cases</a>
+    <a href="#api" class="nav-btn"><i class="fas fa-network-wired"></i> API Testing</a>
+    <a href="#database" class="nav-btn"><i class="fas fa-database"></i> DB Testing</a>
+    <a href="#regression" class="nav-btn"><i class="fas fa-sync-alt"></i> Regression</a>
+    <a href="#automation" class="nav-btn"><i class="fas fa-robot"></i> Automation</a>
+    <a href="#prod-monitoring" class="nav-btn"><i class="fas fa-chart-line"></i> Prod Monitoring</a>
+    <a href="#bug-reports" class="nav-btn"><i class="fas fa-bug"></i> Bug Reports</a>
+    <a href="#screenshots" class="nav-btn"><i class="fas fa-images"></i> Screenshots</a>
+    <a href="#conclusions" class="nav-btn"><i class="fas fa-check-circle"></i> Summary</a>
+  </div>
+</nav>
+
+
+  <!-- Main content -->
+  <main class="max-w-5xl mx-auto p-6 space-y-6">
+    
+    <!-- OVERVIEW (always open, no details) -->
+    <section id="overview" class="bg-gray-800 p-4 rounded">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-2">Overview</h2>
+      <p class="text-lg leading-relaxed">
+        A short description of the product, requirements, and testing goals.<br>
+        <!-- Add your content... -->
+      </p>
+    </section>
+
+    <!-- TEST ENVIRONMENT -->
+    <details id="test-env">
+      <summary>Test Environment</summary>
+      <div>
+        <p>List of devices, browsers, APIs, databases, and tools.</p>
+      </div>
+    </details>
+
+    <!-- TEST CASES -->
+    <details id="test-cases">
+      <summary>Test Cases</summary>
+      <div>
+        <!-- An example -->
+        <details>
+          <summary>TC-001: Login with valid credentials</summary>
+          <div>
+            <p><strong>Steps:</strong> Open login page → Enter valid credentials → Click login</p>
+            <p><strong>Expected:</strong> User logs in successfully.</p>
+            <p><strong>Status:</strong> [Pending / Pass / Fail]</p>
+          </div>
+        </details>
+        <!-- Add more <details> for each test case -->
+      </div>
+    </details>
+
+    <!-- API TESTING -->
+    <details id="api">
+      <summary>API Testing</summary>
+      <div>
+        <details>
+          <summary>POST /api/login</summary>
+          <div>
+            JSON request, response, expected results, and status codes.
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- DB TESTING -->
+    <details id="database">
+      <summary>DB Testing</summary>
+      <div>
+        <details>
+          <summary>Check user exists in DB</summary>
+          <div>SQL Query: SELECT * FROM users WHERE email='test@example.com';</div>
+        </details>
+      </div>
+    </details>
+
+    <!-- REGRESSION -->
+    <details id="regression">
+      <summary>Regression</summary>
+      <div>
+        <p>Description of pre-release checks: smoke/regression, testing critical paths.</p>
+      </div>
+    </details>
+
+    <!-- AUTOMATION -->
+    <details id="automation">
+      <summary>Automation</summary>
+      <div>
+        <p>Description of automation: Selenium, Playwright, GitHub Actions, CI/CD pipeline, etc.</p>
+      </div>
+    </details>
+
+    <!-- PROD MONITORING -->
+    <details id="prod-monitoring">
+      <summary>Prod Monitoring</summary>
+      <div>
+        <p>Kibana, Grafana, error logging, incident notifications.</p>
+      </div>
+    </details>
+
+    <!-- BUG REPORTS -->
+    <details id="bug-reports">
+      <summary>Bug Reports</summary>
+      <div>
+        <!-- An example bug -->
+        <details>
+          <summary>BUG-001: Login fails on mobile</summary>
+          <div>
+            Steps, expected vs actual result, severity.
+            <br><strong>Severity:</strong> High
+            <br><strong>Status:</strong> Open
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- SCREENSHOTS -->
+    <details id="screenshots">
+      <summary>Screenshots</summary>
+      <div>
+        <p>Proofs, videos, screenshots. You can add <code>&lt;img&gt;</code> tags or links.</p>
+      </div>
+    </details>
+
+    <!-- CONCLUSIONS -->
+    <details id="conclusions">
+      <summary>Summary</summary>
+      <div>
+        <p>Overall testing summary, statistics, and recommendations.</p>
+      </div>
+    </details>
+  </main>
+
+  <script src="../assets/js/nav-menu.js"></script>
+
+</body>
+</html>
