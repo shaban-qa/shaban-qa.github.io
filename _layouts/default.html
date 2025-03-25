@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ page.title }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+  <style>
+    .nav-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background-color: #374151;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .nav-button:hover {
+      background-color: #4b5563;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
+  {{ content }}
+  <script src="{{ '/assets/js/nav-menu.js' | relative_url }}"></script>
+</body>
+</html>
