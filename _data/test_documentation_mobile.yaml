@@ -1,0 +1,39 @@
+sections:
+  - title: "1. Test Planning"
+    objective: "Define scope, devices, and key scenarios."
+    example: "Targeted Android (Samsung A51) and iOS (iPhone 12), focusing on onboarding, task management, offline mode."
+    deliverable: "Test plan with 15 critical test cases."
+
+  - title: "2. Test Case Design"
+    objective: "Detailed test cases for all features."
+    example: |
+      TC-001:
+      - Goal: Verify app launches and splash loads.
+      - Steps: Launch on A51 & iPhone 12.
+      - Result: ✅ Pass (3s load).
+
+  - title: "3. Execution & Bug Reporting"
+    objective: "Log issues with reproduction steps."
+    example: |
+      TC-002: Invalid email input causes 2s delay → 🟡
+      TC-004: App crashes on long title → ❌ Fail
+
+  - title: "4. Cross-Device Testing"
+    objective: "Ensure consistency across devices."
+    example: |
+      TC-005:
+      - Test layout on iPhone SE and Samsung Tab A.
+      - Result: ✅ UI scales properly.
+
+  - title: "5. Offline Mode & Edge Cases"
+    objective: "Resilience in poor network."
+    example: |
+      TC-003:
+      - Add task offline → re-syncs correctly. ✅
+
+  - title: "6. Final Report & Recommendations"
+    objective: "Summarize and suggest fixes."
+    deliverable: |
+      - 12/15 passed
+      - 1 critical crash
+      - Video demo + recommendations

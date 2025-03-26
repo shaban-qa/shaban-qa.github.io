@@ -1,7 +1,7 @@
 ---
-title: Mobile App Testing – Demo Report | Checklayer
-layout: page
-permalink: "/pages/report-mob/"
+title: Mobile App Testing
+layout: default
+hide_title: true
 ---
 
 <!-- Header -->
@@ -33,92 +33,22 @@ permalink: "/pages/report-mob/"
       Here’s how we approach mobile app testing, step-by-step, to deliver actionable insights and a polished product. Each phase includes real examples from this demo.
     </p>
 
-    <!-- Test Planning -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">1. Test Planning</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Define scope, devices, and key scenarios.</p>
-        <p><strong>Example:</strong> For this app, we targeted Android (Samsung A51) and iOS (iPhone 12), focusing on onboarding, task management, and offline mode.</p>
-        <p><strong>Deliverable:</strong> Test plan with 15 critical test cases.</p>
-      </div>
-    </details>
-
-    <!-- Test Case Design -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">2. Test Case Design</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Create detailed test cases for all features.</p>
-        <p><strong>Example Test Case (TC-001):</strong></p>
-        <ul class="list-disc list-inside">
-          <li><strong>Goal:</strong> Verify app launches and splash screen loads without crashing.</li>
-          <li><strong>Steps:</strong> Open app on Samsung A51 and iPhone 12.</li>
-          <li><strong>Expected:</strong> Splash screen displays, app opens in under 3 seconds.</li>
-          <li><strong>Result:</strong> ✅ Pass on both platforms.</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- Execution & Bug Reporting -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">3. Execution & Bug Reporting</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Run tests, log issues with steps to reproduce.</p>
-        <p><strong>Example Bug (TC-002):</strong></p>
-        <ul class="list-disc list-inside">
-          <li><strong>Issue:</strong> Registration with invalid email ('user@@mail') shows validation error with a 2-second delay.</li>
-          <li><strong>Steps:</strong> Enter 'user@@mail', tap Submit.</li>
-          <li><strong>Result:</strong> 🟡 Pass (works, but delay noted for optimization).</li>
-        </ul>
-        <p><strong>Example Bug (TC-004):</strong></p>
-        <ul class="list-disc list-inside">
-          <li><strong>Issue:</strong> Crash when adding task with 100+ characters in title.</li>
-          <li><strong>Steps:</strong> Enter long title, tap Save.</li>
-          <li><strong>Result:</strong> ❌ Fail (reported with crash log).</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- Cross-Device Testing -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">4. Cross-Device Testing</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Ensure consistency across screen sizes and OS versions.</p>
-        <p><strong>Example (TC-005):</strong></p>
-        <ul class="list-disc list-inside">
-          <li><strong>Goal:</strong> Check layout on small (iPhone SE) and large (Samsung Tab A) screens.</li>
-          <li><strong>Result:</strong> ✅ Pass (buttons and text scale correctly).</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- Offline Mode & Edge Cases -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">5. Offline Mode & Edge Cases</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Test app resilience in tough scenarios.</p>
-        <p><strong>Example (TC-003):</strong></p>
-        <ul class="list-disc list-inside">
-          <li><strong>Goal:</strong> Add task offline, sync on reconnect.</li>
-          <li><strong>Steps:</strong> Disable Wi-Fi, add task, re-enable Wi-Fi.</li>
-          <li><strong>Result:</strong> ✅ Pass (sync triggered on app resume).</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- Final Report -->
-    <details class="mb-6">
-      <summary class="cursor-pointer text-xl text-yellow-200">6. Final Report & Recommendations</summary>
-      <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
-        <p><strong>Objective:</strong> Summarize findings and suggest fixes.</p>
-        <p><strong>Deliverable:</strong> Detailed report with:</p>
-        <ul class="list-disc list-inside">
-          <li>12/15 test cases passed.</li>
-          <li>2 minor issues (e.g., validation delay).</li>
-          <li>1 critical bug (crash on long input).</li>
-          <li>Video walkthrough of bugs + fix suggestions.</li>
-        </ul>
-      </div>
-    </details>
+    {% for section in site.data.test_documentation_mobile.sections %}
+      <details class="mb-6">
+        <summary class="cursor-pointer text-xl text-yellow-200">{{ section.title }}</summary>
+        <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
+          {% if section.objective %}
+            <p><strong>Objective:</strong> {{ section.objective }}</p>
+          {% endif %}
+          {% if section.example %}
+            <p><strong>Example:</strong><br>{{ section.example | newline_to_br }}</p>
+          {% endif %}
+          {% if section.deliverable %}
+            <p><strong>Deliverable:</strong><br>{{ section.deliverable | newline_to_br }}</p>
+          {% endif %}
+        </div>
+      </details>
+    {% endfor %}
   </section>
 
   <!-- Why It Matters Section -->

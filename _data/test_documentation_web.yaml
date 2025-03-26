@@ -1,0 +1,37 @@
+sections:
+  - title: "1. Test Planning"
+    objective: "Define browsers and features."
+    example: "Target Chrome, Firefox, Safari, Edge — login, dashboard, forms."
+    deliverable: "20 test cases."
+
+  - title: "2. Test Case Design"
+    objective: "Write cases for web features."
+    example: |
+      TC-001:
+      - Goal: Login works with valid input.
+      - Result: ✅ All browsers
+
+  - title: "3. Execution & Bug Reporting"
+    objective: "Log browser-specific bugs."
+    example: |
+      TC-002: Safari no error on empty form → ❌
+      TC-003: 500 error on 3G → ❌
+
+  - title: "4. Cross-Browser Testing"
+    objective: "Ensure layout and behavior."
+    example: |
+      TC-004:
+      - Mobile + desktop → ✅ layout adjusts
+
+  - title: "5. Performance & Edge Cases"
+    objective: "Stress and input testing."
+    example: |
+      TC-005: XSS attempt → ✅ sanitized
+      TC-006: 1000+ records → 🟡 recommend pagination
+
+  - title: "6. Final Report & Recommendations"
+    objective: "Summarize findings."
+    deliverable: |
+      - 16/20 passed
+      - 2 minor, 2 critical bugs
+      - Walkthrough video + fixes

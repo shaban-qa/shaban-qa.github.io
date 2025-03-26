@@ -1,0 +1,36 @@
+sections:
+  - title: "1. Test Planning"
+    objective: "Define key metrics and load scenarios."
+    example: "Focused on TTI, response under 50 users, frontend rendering on Chrome/Firefox."
+    deliverable: "12 test cases planned."
+
+  - title: "2. Test Case Design"
+    objective: "Create tests for performance bottlenecks."
+    example: |
+      TC-001:
+      - Goal: Measure homepage load in Chrome.
+      - Result: ✅ 2.1s TTI
+
+  - title: "3. Execution & Bottleneck Detection"
+    objective: "Run tests, identify slowdowns."
+    example: |
+      TC-002: /data slows with 20 users → 🟡 4s
+      TC-003: 5MB image blocks render → ❌ Fail
+
+  - title: "4. Load Testing"
+    objective: "Simulate moderate user load."
+    example: |
+      TC-004: 50 users /login → ✅
+      TC-005: 100 users dashboard → 🟡 (1.5s)
+
+  - title: "5. Frontend Performance"
+    objective: "Optimize JS rendering."
+    example: |
+      TC-006:
+      - Bundle size 1.2MB → 🟡 3.5s, suggest minify
+
+  - title: "6. Final Report & Recommendations"
+    objective: "Summarize performance state."
+    deliverable: |
+      - 9/12 passed
+      - Charts, bottlenecks, suggestions

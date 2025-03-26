@@ -1,4 +1,12 @@
-/* ============================= Ascendant styles for both pages */
+/* ========== Global styles ========== */
+body {
+  background: linear-gradient(to bottom, #111827, #1F2937);
+  color: #E5E7EB;
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+/* ========== Header styles ========== */
 header {
   background-image: url('https://www.clevtecservices.co.uk/Content/Images/inner-header-page-header-slim.png');
   background-size: cover;
@@ -18,24 +26,19 @@ header::before {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-header h1, header p {
+header h1,
+header p {
   position: relative;
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .highlight-name { color: #FBBF24; }
+
 a { color: #60A5FA; }
 a:hover { color: #93C5FD; }
-nav {
-  padding: 1rem 0;
-  background-color: #2C3E50;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  overflow: hidden;
-}
 
-/* Base button styles */
+/* ========== Buttons ========== */
 .btn {
   background-color: #2C3E50;
   color: #F0F4F8;
@@ -44,30 +47,7 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Index-specific styles */
-.nav-button {
-  padding: 0.75rem 1.5rem;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex; /* Змінено з inline на flex для коректного застосування фону та округлостей */
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  background-color: #2C3E50; /* Явно задаємо фон у стані спокою */
-  color: #F0F4F8; /* Явно задаємо колір тексту */
-  border-radius: 10px; /* Округлі кути */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь у стані спокою */
-}
-.nav-button:hover {
-  transform: scale(1.1);
-  background-color: #34495E;
-  color: #FFFFFF;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
+/* ========== Subheadings ========== */
 .subheading {
   color: #FBBF24;
   font-weight: bold;
@@ -76,7 +56,7 @@ nav {
   display: inline-block;
 }
 
-/* Details toggle button styles */
+/* ========== Details & Popups ========== */
 .details-toggle {
   display: inline-flex;
   align-items: center;
@@ -89,8 +69,6 @@ nav {
 .details-toggle i {
   margin-right: 0.25rem;
 }
-
-/* Popup details styles */
 .popup-details {
   position: absolute;
   width: 300px;
@@ -104,19 +82,6 @@ nav {
 .popup-details:not(.hidden) {
   opacity: 1;
   pointer-events: auto;
-}
-
-/* Project1-specific styles */
-.nav-btn {
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  margin: 0.25rem 8px 0.25rem 0;
-}
-.nav-btn i { margin-right: 0.4rem; }
-.nav-btn:hover {
-  transform: scale(1.05);
-  background-color: #34495E;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 details {
@@ -147,14 +112,18 @@ details > div {
   padding: 1rem;
   background: #1f1f1f;
   color: #ddd;
-  animation: sweep 0.3s ease-in-out;
-}
-@keyframes sweep {
-  0% { opacity: 0; margin-top: -5px; }
-  100% { opacity: 1; margin-top: 0; }
+  animation: fade-in 0.3s ease-in-out;
 }
 
-/* Sticker styles */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* ========== Sticker styles ========== */
 .sticker-container {
   position: fixed;
   bottom: 20px;
@@ -168,16 +137,11 @@ details > div {
 }
 .sticker-container img:hover { transform: scale(1.2); }
 
-/* Responsive adjustments */
+/* ========== Responsive adjustments ========== */
 @media (max-width: 768px) {
   header {
     background-attachment: scroll;
     height: 35vh;
-  }
-  .nav-button {
-    margin: 0.25rem;
-    padding: 0.5rem 1rem;
-    gap: 0.5rem;
   }
   header h1 { font-size: 2.5rem; }
   header p { font-size: 1.25rem; }

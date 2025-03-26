@@ -1,0 +1,25 @@
+<div x-data="{ open: false }" class="bg-gray-900 border-t border-gray-700 text-sm text-gray-400 text-center">
+  <!-- Toggle Button -->
+  <button @click="open = !open"
+          class="w-full flex justify-center items-center py-4 hover:text-yellow-400 transition">
+    <span x-show="!open">▼</span>
+    <span x-show="open">▲</span>
+  </button>
+
+  <!-- Collapsible Nav -->
+  <div x-show="open" class="pb-4 animate-fade-in">
+    <div class="flex justify-center gap-8 items-center">
+      <a href="/" class="text-blue-400 hover:text-blue-500" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5" />
+        </svg>
+      </a>
+      <a href="/pages/report-api/" class="hover:text-yellow-400">API</a>
+      <a href="/pages/report-mob/" class="hover:text-yellow-400">Mobile</a>
+      <a href="/pages/report-web/" class="hover:text-yellow-400">Web</a>
+      <a href="/pages/report-perf/" class="hover:text-yellow-400">Performance</a>
+      <a href="/pages/report-web3/" class="hover:text-yellow-400">Web3</a>
+    </div>
+  </div>
+</div>

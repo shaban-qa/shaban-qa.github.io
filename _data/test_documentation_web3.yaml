@@ -1,0 +1,35 @@
+sections:
+  - title: "1. Test Planning"
+    objective: "Define scope, chains, and key flows."
+    example: "Ethereum (Sepolia), Polygon (Mumbai), wallet login, minting, token transfers."
+    deliverable: "20 test cases."
+
+  - title: "2. Test Case Design"
+    objective: "Write test cases for smart contracts."
+    example: |
+      TC-001: Connect MetaMask → ✅ address displayed
+
+  - title: "3. Execution & Bug Reporting"
+    objective: "Track blockchain issues."
+    example: |
+      TC-002: Mint NFT fails (gas) → ❌
+      TC-003: Token sent, UI doesn't update → 🟡
+
+  - title: "4. Smart Contract Interaction"
+    objective: "Test calls, logs, approvals."
+    example: |
+      TC-004: Approve tokens → ✅ event emitted
+      TC-005: Invalid call → ✅ reverted
+
+  - title: "5. Security & Edge Cases"
+    objective: "Try exploits, edge inputs."
+    example: |
+      TC-006: Reentrancy guarded → ✅
+      TC-007: Zero gas tx → 🟡 UI freeze
+
+  - title: "6. Final Report & Recommendations"
+    objective: "Wrap findings and risks."
+    deliverable: |
+      - 17/20 passed
+      - 1 critical bug
+      - Tx logs + fixes
