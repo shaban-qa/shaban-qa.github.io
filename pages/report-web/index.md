@@ -1,6 +1,6 @@
 ---
-layout: default
 title: Web QA Report
+layout: page
 ---
 
 <!-- Header -->

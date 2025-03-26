@@ -1,7 +1,7 @@
 ---
-layout: default
-title: "Mobile App Testing – Demo Report | Checklayer"
-permalink: /pages/report-mob/
+title: Mobile App Testing – Demo Report | Checklayer
+layout: page
+permalink: "/pages/report-mob/"
 ---
 
 <!-- Header -->

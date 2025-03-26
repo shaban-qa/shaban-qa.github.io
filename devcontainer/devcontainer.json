@@ -1,0 +1,8 @@
+{
+  "name": "jekyll-dev",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
+  "features": {
+    "ghcr.io/devcontainers/features/jekyll:1": {}
+  },
+  "postCreateCommand": "bundle install"
+}
