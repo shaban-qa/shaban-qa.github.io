@@ -12,9 +12,14 @@
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
 </head>
 <body class="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 min-h-screen">
-  {% include header.html %}
-  {% include navbar.html %}
+  
+  {% if page.url == "/" %}
+    {% include header.html %}
+    {% include navbar.html %}
+  {% endif %}
+
   {{ content }}
   {% include footer.html %}
+  
 </body>
 </html>

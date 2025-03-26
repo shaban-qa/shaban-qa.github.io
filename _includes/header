@@ -1,7 +1,0 @@
-<header class="bg-cover bg-center" style="background-image: url('https://www.clevtecservices.co.uk/Content/Images/inner-header-page-header-slim.png'); height: 30vh;">
-  <div class="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center">
-    <h1 class="text-4xl text-white font-bold">Hello 👋</h1>
-    <h2 class="text-2xl text-white mt-2">Welcome to <span class="highlight-name">Checklayer</span> — Your QA Micro-Agency</h2>
-    <p class="text-lg text-white mt-4">Fast. Reliable. Quality Assurance for Your Product.</p>
-  </div>
-</header>

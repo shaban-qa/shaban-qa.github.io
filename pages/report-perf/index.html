@@ -1,15 +1,14 @@
 ---
-title: Web3 QA Report
+title: Performance Testing
 layout: default
 hide_title: true
 ---
 
 <!-- Header -->
-<header class="text-white py-16 text-center">
-  <h1 class="text-4xl font-bold">Web3 App Testing</h1>
-  <p class="text-3xl mt-4"><strong>Demo QA Report by <span class="highlight-name">Checklayer</span></strong></p>
-  <p class="text-xl mt-4">Ensuring Secure & Seamless Blockchain Integration</p>
-</header>
+{% include header-perf.html %}
+
+<!-- Navbar -->
+{% include navbar.html %}
 
 <!-- Main Content -->
 <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
@@ -17,7 +16,7 @@ hide_title: true
   <section class="bg-gray-800 p-8 rounded-lg">
     <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Summary</h2>
     <p class="text-lg leading-relaxed">
-      This demo report highlights how <strong>Checklayer</strong> tests Web3 apps to ensure they’re secure, functional, and user-friendly. We validate wallet connections, smart contract interactions, transaction flows, and blockchain compatibility—testing on networks like Ethereum and Polygon with tools like MetaMask and Hardhat. Below is our full process, from planning to results, showing what you’ll get from our QA services.
+      This demo report shows how <strong>Checklayer</strong> tests app performance to ensure it’s fast, responsive, and stable under load. We measure load times, simulate user traffic, and identify bottlenecks—using accessible tools like browser DevTools and JMeter. Below is our practical process, from planning to results, tailored to deliver value without overwhelming resources.
     </p>
   </section>
 
@@ -25,10 +24,10 @@ hide_title: true
   <section class="bg-gray-800 p-8 rounded-lg">
     <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Test Documentation: From A to Z</h2>
     <p class="text-lg leading-relaxed mb-6">
-      Here’s how we test your Web3 app, step-by-step, to ensure a flawless blockchain experience. Each phase includes examples from this demo.
+      Here’s how we test performance with a lean, effective approach. Each phase includes examples from this demo, showing what we can achieve with manageable effort.
     </p>
 
-    {% for section in site.data.test_documentation_web3.sections %}
+    {% for section in site.data.test_documentation_performance.sections %}
       <details class="mb-6">
         <summary class="cursor-pointer text-xl text-yellow-200">{{ section.title }}</summary>
         <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
@@ -50,13 +49,13 @@ hide_title: true
   <section class="bg-gray-800 p-8 rounded-lg">
     <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Why It Matters</h2>
     <p class="text-lg leading-relaxed mb-4">
-      Web3 apps handle real money and trust. A single bug can cost users funds or ruin your reputation. With <strong>Checklayer</strong>, you get QA that secures your blockchain integration and ensures a smooth UX. Here’s what we deliver:
+      Slow apps lose users fast. With <strong>Checklayer</strong>, you get practical performance testing that keeps your app snappy and stable, even under pressure. Here’s what we bring:
     </p>
     <ul class="list-disc list-inside text-lg text-gray-300">
-      <li><i class="fas fa-wallet text-yellow-400 mr-2"></i> Secure wallet integration</li>
-      <li><i class="fas fa-link text-yellow-400 mr-2"></i> Reliable contract calls</li>
-      <li><i class="fas fa-shield-alt text-yellow-400 mr-2"></i> Protection from exploits</li>
-      <li><i class="fas fa-chart-line text-yellow-400 mr-2"></i> Clear user feedback</li>
+      <li><i class="fas fa-tachometer-alt text-yellow-400 mr-2"></i> Faster load times</li>
+      <li><i class="fas fa-users text-yellow-400 mr-2"></i> Stability under traffic</li>
+      <li><i class="fas fa-tools text-yellow-400 mr-2"></i> Simple bottleneck fixes</li>
+      <li><i class="fas fa-chart-line text-yellow-400 mr-2"></i> Clear performance insights</li>
     </ul>
   </section>
 </main>

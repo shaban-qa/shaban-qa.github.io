@@ -1,0 +1,1 @@
+// Removed the code that generates the header
