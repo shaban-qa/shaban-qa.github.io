@@ -8,6 +8,23 @@
               d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5" />
       </svg>
     </a>
+    
+    <!-- Dynamic Clock + Date (horizontal layout) -->
+<div x-data="{
+    time: '',
+    date: '',
+    updateTime() {
+      const now = new Date();
+      this.time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      this.date = now.toLocaleDateString([], { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+    }
+  }"
+  x-init="updateTime(); setInterval(updateTime, 1000)"
+  class="flex items-center gap-4 text-sm font-mono text-green-300">
+  <span x-text="time"></span>
+  <span x-text="date" class="text-green-500 text-xs"></span>
+</div>
+
     <button @click="open = !open" class="text-blue-500 hover:text-yellow-400 focus:outline-none" aria-label="Toggle menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
