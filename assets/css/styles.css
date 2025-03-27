@@ -175,12 +175,12 @@ details > div {
   background-color: #1f2937;
 }
 
-/* Меню для мобільних */
+/* Меню для мобільних (за замовчуванням приховане) */
 .menu-container-mobile {
-  display: none;
+  display: none;            /* Приховане на десктопах */
   flex-direction: column;
-  position: flex;
-  top: 4rem; /* Під навбаром */
+  position: absolute;       /* Виправлено, було position: flex; */
+  top: 4rem;                /* Під navbar */
   left: 0;
   width: 100%;
   padding: 2.8rem;
@@ -191,10 +191,10 @@ details > div {
 /* Медіа-запити */
 @media (max-width: 768px) {
   .menu-container-mobile {
-    display: flex; /* Показуємо мобільне меню */
+    display: flex;          /* Показуємо мобільне меню */
   }
   .menu-container {
-    display: none; /* Ховаємо десктопне меню */
+    display: none;          /* Ховаємо десктопне */
   }
 }
 
@@ -203,7 +203,7 @@ details > div {
   font-size: 0.7rem;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  color: #FBBF24;
+  color: #60A5FA;
   font-weight: 600;
   background-color: #374151;
   transition: transform 0.2s, background-color 0.3s;
@@ -212,11 +212,25 @@ details > div {
 
 .menu-link:hover {
   background-color: #4b5563;
-  color: #60A5FA;
+  color: #FBBF24;
   transform: translateY(-2px);
 }
 
 .menu-link:focus {
   outline: none;
   border: 1px solid #fbbf24;
+}
+
+/* Rotate arrow when menu is open */
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Fixed background for home button and arrow */
+.navbar-links > div:first-child {
+  background-color: #1f2937;
+  padding-right: 1rem;
+  z-index: 10;
+  position: relative;
 }
