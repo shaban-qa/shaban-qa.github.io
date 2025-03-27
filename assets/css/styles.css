@@ -33,10 +33,16 @@ header p {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-.highlight-name { color: #FBBF24; }
+.highlight-name {
+  color: #FBBF24;
+}
 
-a { color: #60A5FA; }
-a:hover { color: #93C5FD; }
+a {
+  color: #60A5FA;
+}
+a:hover {
+  color: #93C5FD;
+}
 
 /* ========== Buttons ========== */
 .btn {
@@ -60,10 +66,9 @@ a:hover { color: #93C5FD; }
 
 /* Обгортка для кнопки та попапу */
 .details-container {
-  position: relative; /* Оцінюємо позицію для popup-details */
-  display: inline-block; /* Щоб ширина була під контент */
+  position: relative;
+  display: inline-block;
 }
-
 .details-toggle {
   display: inline-flex;
   align-items: center;
@@ -73,7 +78,6 @@ a:hover { color: #93C5FD; }
   cursor: pointer;
   position: relative;
 }
-
 .details-toggle i {
   margin-right: 0.25rem;
 }
@@ -83,142 +87,16 @@ a:hover { color: #93C5FD; }
   position: absolute;
   width: 400px;
   z-index: 100;
-  background: #2a2a2a;      /* темний фон */
+  background: #2a2a2a; /* темний фон */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
-  pointer-events: none;     /* поки приховане — не клікабельне */
+  pointer-events: none; /* поки приховане — не клікабельне */
 }
-
 .popup-details:not(.hidden) {
   pointer-events: auto;
   opacity: 1;
 }
 
-
-
-/* Медіа-запит для мобільних (до 768px) */
-@media (max-width: 768px) {
-.details-container {
-  position: absolute; /* Оцінюємо позицію для popup-details */
-  display: inline-block; /* Щоб ширина була під контент */
-}
-
-.details-toggle {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.details-toggle i {
-  margin-right: 0.25rem;
-}
-
-/* Popup */
-.popup-details {
-  position: absolute;
-  width: 80%;
-  z-index: 100;
-  background: #2a2a2a;      /* темний фон */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 0.5rem;
-  pointer-events: none;     /* поки приховане — не клікабельне */
-}
-
-.popup-details:not(.hidden) {
-  pointer-events: auto;
-  opacity: 1;
-}
-
-.custom-margin-right {
-    margin-right: 0 !important; /* Відміняємо відступ */
-
-
-details {
-  border-radius: 8px;
-  border: 1px solid #444;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  background-color: #2a2a2a;
-}
-details[open] { animation: expand 0.3s ease-out; }
-@keyframes expand {
-  0% {
-    opacity: 0;
-    transform: scaleY(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-details summary {
-  cursor: pointer;
-  padding: 0.75rem 1rem;
-  font-size: 1.25rem;
-  background: #333;
-  color: #FBBF24;
-  outline: none;
-  list-style: none;
-  user-select: none;
-}
-details summary::-webkit-details-marker {
-  display: none;
-}
-details summary:hover {
-  background: #3f3f3f;
-}
-details > div {
-  padding: 1rem;
-  background: #1f1f1f;
-  color: #ddd;
-  animation: fade-in 0.3s ease-in-out;
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out;
-}
-/* ========== Sticker styles ========== */
-.sticker-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-.sticker-container img {
-  width: 120px;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-.sticker-container img:hover { transform: scale(1.2); }
-
-/* ========== Responsive adjustments ========== */
-@media (max-width: 768px) {
-  header {
-    background-attachment: scroll;
-    height: 35vh;
-  }
-  header h1 { font-size: 2.5rem; }
-  header p { font-size: 1.25rem; }
-  .sticker-container img { width: 80px; }
-  .popup-details { width: 250px; }
-}
-@media (max-width: 480px) {
-  .sticker-container img { width: 60px; }
-  .popup-details { width: 200px; }
-}
 /* Стилі для навбару */
 .navbar-links {
   background-color: #1f2937;
@@ -244,25 +122,15 @@ details > div {
 
 /* Меню для мобільних (за замовчуванням приховане) */
 .menu-container-mobile {
-  display: none;            /* Приховане на десктопах */
+  display: none;
   flex-direction: column;
-  position: absolute;       /* Виправлено, було position: flex; */
-  top: 4rem;                /* Під navbar */
+  position: absolute; /* Виправлено, було position: flex; */
+  top: 4rem;         /* Під navbar */
   left: 0;
   width: 100%;
   padding: 2.8rem;
   background-color: #1f2937;
   z-index: 50;
-}
-
-/* Медіа-запити */
-@media (max-width: 768px) {
-  .menu-container-mobile {
-    display: flex;          /* Показуємо мобільне меню */
-  }
-  .menu-container {
-    display: none;          /* Ховаємо десктопне */
-  }
 }
 
 /* Стилі для посилань у меню */
@@ -276,13 +144,11 @@ details > div {
   transition: transform 0.2s, background-color 0.3s;
   margin-bottom: 0.123rem;
 }
-
 .menu-link:hover {
   background-color: #4b5563;
   color: #FBBF24;
   transform: translateY(-2px);
 }
-
 .menu-link:focus {
   outline: none;
   border: 1px solid #fbbf24;
@@ -302,6 +168,162 @@ details > div {
   position: relative;
 }
 
-.custom-margin-right {
-  margin-right: 750px; /* або будь-яке інше значення */
+/* ========== Sticker styles ========== */
+.sticker-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.sticker-container img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.sticker-container img:hover {
+  transform: scale(1.2);
+}
+#.custom-margin-right {
+  margin-right: 750px; 
+}
+---
+
+##. **МЕДІА-ЗАПИТ 768**
+
+```css
+@media (max-width: 768px) {
+
+  .details-container {
+    position: absolute; /* Оцінюємо позицію для popup-details */
+    display: inline-block;
+  }
+  .details-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+  .details-toggle i {
+    margin-right: 0.25rem;
+  }
+  /* Popup */
+  .popup-details {
+    position: absolute;
+    width: 80%;
+    z-index: 100;
+    background: #2a2a2a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    pointer-events: none;
+  }
+  .popup-details:not(.hidden) {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .custom-margin-right {
+    margin-right: 0 !important; /* Відміняємо відступ */
+  }
+
+  details {
+    border-radius: 8px;
+    border: 1px solid #444;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background-color: #2a2a2a;
+  }
+  details[open] {
+    animation: expand 0.3s ease-out;
+  }
+  @keyframes expand {
+    0% {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  details summary {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-size: 1.25rem;
+    background: #333;
+    color: #FBBF24;
+    outline: none;
+    list-style: none;
+    user-select: none;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary:hover {
+    background: #3f3f3f;
+  }
+  details > div {
+    padding: 1rem;
+    background: #1f1f1f;
+    color: #ddd;
+    animation: fade-in 0.3s ease-in-out;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  /* ========== Responsive adjustments ========== */
+  header {
+    background-attachment: scroll;
+    height: 35vh;
+  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.25rem;
+  }
+  .sticker-container img {
+    width: 80px;
+  }
+  .popup-details {
+    width: 250px; /* Зменшуємо попап до 250px */
+  }
+
+  /* Меню (мобільне) */
+  .menu-container-mobile {
+    display: flex; /* Показуємо мобільне меню */
+  }
+  .menu-container {
+    display: none; /* Ховаємо десктопне */
+  }
+}
+
+##. **МЕДІА-ЗАПИТ 480**
+
+@media (max-width: 480px) {
+  .sticker-container img {
+    width: 60px;
+  }
+  .popup-details {
+    width: 200px;
+  }
+  /* Зменшуємо розмір шрифтів і кнопок */
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
 }
