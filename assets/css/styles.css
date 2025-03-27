@@ -57,6 +57,13 @@ a:hover { color: #93C5FD; }
 }
 
 /* ========== Details & Popups ========== */
+
+/* Обгортка для кнопки та попапу */
+.details-container {
+  position: relative; /* Оцінюємо позицію для popup-details */
+  display: inline-block; /* Щоб ширина була під контент */
+}
+
 .details-toggle {
   display: inline-flex;
   align-items: center;
@@ -66,24 +73,28 @@ a:hover { color: #93C5FD; }
   cursor: pointer;
   position: relative;
 }
+
 .details-toggle i {
   margin-right: 0.25rem;
 }
+
+/* Popup */
 .popup-details {
   position: absolute;
-  width: 300px;
+  width: 400px;
   z-index: 100;
+  background: #2a2a2a;      /* темний фон */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transform: translateX(-50%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-.popup-details:not(.hidden) {
-  opacity: 1;
-  pointer-events: auto;
+  border-radius: 0.5rem;
+  pointer-events: none;     /* поки приховане — не клікабельне */
 }
 
+.popup-details:not(.hidden) {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* ... решта стилів, якщо треба ... */
 details {
   border-radius: 8px;
   border: 1px solid #444;
@@ -93,8 +104,14 @@ details {
 }
 details[open] { animation: expand 0.3s ease-out; }
 @keyframes expand {
-  0% { opacity: 0; transform: scaleY(0.95); }
-  100% { opacity: 1; transform: scaleY(1); }
+  0% {
+    opacity: 0;
+    transform: scaleY(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 details summary {
   cursor: pointer;
@@ -106,23 +123,31 @@ details summary {
   list-style: none;
   user-select: none;
 }
-details summary::-webkit-details-marker { display: none; }
-details summary:hover { background: #3f3f3f; }
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary:hover {
+  background: #3f3f3f;
+}
 details > div {
   padding: 1rem;
   background: #1f1f1f;
   color: #ddd;
   animation: fade-in 0.3s ease-in-out;
 }
-
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
-
 /* ========== Sticker styles ========== */
 .sticker-container {
   position: fixed;
