@@ -1,24 +1,30 @@
-<!-- Navbar -->
-<div x-data="{ open: false }" class="flex justify-center py-2">
-  <nav class="navbar-links flex items-center bg-gray-800 border border-gray-600 shadow-lg rounded-md w-full max-w-4xl px-4 py-2 relative overflow-hidden">
-    <!-- Home button and arrow container (fixed background) -->
-    <div class="flex items-center bg-gray-800 z-10 pr-6">
-      <div class="flex-shrink-0">
-        <a href="/" class="text-blue-400 hover:text-blue-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5" />
-          </svg>
-        </a>
-      </div>
-      <button @click="open = !open" class="ml-4 text-blue-400 hover:text-blue-500 focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'rotate-180': open }">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+<div x-data="{ open: false }" class="flex justify-center py-2 relative">
+  <nav class="navbar-links flex items-center bg-gray-800 border border-gray-600 shadow-lg rounded-md w-full max-w-4xl px-4 py-2 relative">
+    <!-- Кнопка "Додому" -->
+    <div class="flex-shrink-0">
+      <a href="/" class="text-blue-400 hover:text-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.75L12 3l9 6.75M4.5 10.5v9.75h15V10.5" />
         </svg>
-      </button>
+      </a>
     </div>
 
-    <!-- Sliding menu -->
-    <div class="menu-container flex space-x-2 absolute inset-y-0 right-0 bg-gray-800"
+    <!-- Гамбургер-кнопка для мобільних -->
+    <button @click="open = !open" class="ml-auto text-blue-400 hover:text-blue-500 focus:outline-none md:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- Кнопка зі стрілкою для десктопів -->
+    <button @click="open = !open" class="hidden md:block ml-4 text-blue-400 hover:text-blue-500 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'rotate-180': open }">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Меню для десктопів -->
+    <div class="menu-container hidden md:flex space-x-2 absolute inset-y-0 right-0 bg-gray-800"
          x-show="open"
          @click.away="open = false"
          x-transition:enter="transition ease-out duration-300"
@@ -34,4 +40,23 @@
       <a href="/pages/report-web3/" class="menu-link">Web3</a>
     </div>
   </nav>
+
+  <!-- Меню для мобільних -->
+  <div class="menu-container-mobile fixed top-0 left-0 w-full bg-gray-800"
+       x-show="open"
+       @click.away="open = false"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="transform -translate-y-full"
+       x-transition:enter-end="transform translate-y-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="transform translate-y-0"
+       x-transition:leave-end="transform -translate-y-full">
+    <div class="flex flex-col items-center py-4">
+      <a href="/pages/report-api/" class="menu-link">API</a>
+      <a href="/pages/report-mob/" class="menu-link">Mobile</a>
+      <a href="/pages/report-web/" class="menu-link">Web</a>
+      <a href="/pages/report-perf/" class="menu-link">Performance</a>
+      <a href="/pages/report-web3/" class="menu-link">Web3</a>
+    </div>
+  </div>
 </div>
