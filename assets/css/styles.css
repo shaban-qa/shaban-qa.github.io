@@ -152,3 +152,61 @@ details > div {
   .sticker-container img { width: 60px; }
   .popup-details { width: 200px; }
 }
+/* Navbar styles */
+.navbar-links {
+  background-color: #1f2937;
+  border: 1px solid #3b4b58;
+  border-radius: 0.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Menu container */
+.menu-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 1rem;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 8rem);
+  background-color: #1f2937;
+}
+
+/* Menu link styles */
+.menu-link {
+  font-size: 0.875rem; /* 14px замість 16px */
+  padding: 0.25rem 0.75rem; /* Вертикальний padding 4px, горизонтальний 12px */
+  border-radius: 0.375rem;
+  color: #e5e7eb;
+  font-weight: 600;
+  background-color: #374151;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.menu-link:hover {
+  background-color: #4b5563;
+  color: #fbbf24;
+  transform: translateY(-2px);
+}
+
+.menu-link:focus {
+  outline: none;
+  border: 1px solid #fbbf24;
+}
+
+/* Rotate arrow when menu is open */
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Fixed background for home button and arrow */
+.navbar-links > div:first-child {
+  background-color: #1f2937;
+  padding-right: 4rem;
+  z-index: 10;
+  position: relative;
+}
