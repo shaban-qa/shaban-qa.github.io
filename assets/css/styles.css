@@ -87,6 +87,7 @@ a:hover { color: #93C5FD; }
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
   pointer-events: none;     /* поки приховане — не клікабельне */
+  transform: translateX(42px);
 }
 
 .popup-details:not(.hidden) {
@@ -94,7 +95,6 @@ a:hover { color: #93C5FD; }
   opacity: 1;
 }
 
-/* ... решта стилів, якщо треба ... */
 details {
   border-radius: 8px;
   border: 1px solid #444;
@@ -258,4 +258,8 @@ details > div {
   padding-right: 1rem;
   z-index: 10;
   position: relative;
+}
+
+.custom-margin-right {
+  margin-right: 750px; /* або будь-яке інше значення */
 }
