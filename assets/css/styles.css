@@ -45,6 +45,67 @@ a:hover {
   color: #93C5FD;
 }
 
+/* Expandable Links Styles */
+details {
+  border-radius: 8px;
+  border: 1px solid #444;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-color: #2a2a2a;
+}
+
+details[open] {
+  animation: expand 0.3s ease-out;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    transform: scaleY(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  background: #333;
+  color: #FBBF24;
+  outline: none;
+  list-style: none;
+  user-select: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary:hover {
+  background: #3f3f3f;
+}
+
+details > div {
+  padding: 1rem;
+  background: #1f1f1f;
+  color: #ddd;
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ========== Buttons ========== */
 .btn {
   background-color: #2C3E50;
@@ -155,20 +216,6 @@ a:hover {
   border: 1px solid #fbbf24;
 }
 
-/* Rotate arrow when menu is open */
-.rotate-180 {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
-
-/* Fixed background for home button and arrow */
-.navbar-links > div:first-child {
-  background-color: #1f2937;
-  padding-right: 1rem;
-  z-index: 10;
-  position: relative;
-}
-
 /* ========== Sticker styles ========== */
 .sticker-container {
   position: fixed;
@@ -184,10 +231,9 @@ a:hover {
 .sticker-container img:hover {
   transform: scale(1.2);
 }
-#.custom-margin-right {
+.custom-margin-right {
   margin-right: 750px; 
 }
----
 
 
 
@@ -293,7 +339,7 @@ a:hover {
   
   /* Responsive adjustments */
   header {
-    background-attachment: scroll;
+    background-attachment: fixed;
     height: 35vh;
   }
   header h1 {
@@ -314,6 +360,7 @@ a:hover {
     display: none; /* Ховаємо десктопне */
   }
 }
+
 
 @media (max-width: 480px) {
   .sticker-container {

@@ -30,7 +30,7 @@ hide_title: true
     {% for section in site.data.test_documentation_mobile.sections %}
       <details class="mb-6">
         <summary class="cursor-pointer text-xl text-yellow-200">{{ section.title }}</summary>
-        <div class="ml-4 mt-2 p-4 bg-gray-700 rounded-lg text-gray-300">
+        <div class="p-4 bg-gray-700 text-gray-300">
           {% if section.objective %}
             <p><strong>Objective:</strong> {{ section.objective }}</p>
           {% endif %}
