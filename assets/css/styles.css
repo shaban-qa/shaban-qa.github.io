@@ -28,7 +28,7 @@ header::before {
 }
 header h1,
 header p {
-  
+  font-size: clamp(1rem, 6vw, 2rem);
   position: relative;
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -328,7 +328,7 @@ a:hover {
   }
   /* Зменшуємо розмір шрифтів і кнопок */
   header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   header p {
     font-size: 1rem;
