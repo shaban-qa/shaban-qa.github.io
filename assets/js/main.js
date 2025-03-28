@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Перевіряємо, чи мобільний пристрій
       const isMobile = window.innerWidth < 768;  // Якщо ширина екрана менша за 768px (мобільний пристрій)
-
+      
       // Якщо це вікно вже відкрите, закриваємо його
       if (!detailEl.classList.contains('hidden')) {
         detailEl.classList.add('hidden');

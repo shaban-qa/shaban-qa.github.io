@@ -13,7 +13,7 @@ header {
   background-position: center;
   background-attachment: fixed;
   position: relative;
-  height: 30vh;
+  height: 35vh;
   width: 100%;
 }
 header::before {
@@ -28,6 +28,7 @@ header::before {
 }
 header h1,
 header p {
+  
   position: relative;
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -171,14 +172,14 @@ a:hover {
 /* ========== Sticker styles ========== */
 .sticker-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   right: 20px;
   z-index: 1000;
 }
 .sticker-container img {
-  width: 120px;
+  width: 100px;
   height: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 .sticker-container img:hover {
   transform: scale(1.2);
@@ -188,11 +189,18 @@ a:hover {
 }
 ---
 
-##. **МЕДІА-ЗАПИТ 768**
 
-```css
+
+
 @media (max-width: 768px) {
-
+  .sticker-container {
+    bottom: 12px;  /* Зменшуємо відступ для мобільних */
+    right: 12px;   /* Зменшуємо відступ для мобільних */
+  }
+  .sticker-container img {
+    width: 80px; /* Менший розмір для мобільних */
+  }
+  
   .details-container {
     position: absolute; /* Оцінюємо позицію для popup-details */
     display: inline-block;
@@ -226,7 +234,7 @@ a:hover {
   .custom-margin-right {
     margin-right: 0 !important; /* Відміняємо відступ */
   }
-
+  
   details {
     border-radius: 8px;
     border: 1px solid #444;
@@ -282,25 +290,22 @@ a:hover {
   .animate-fade-in {
     animation: fade-in 0.3s ease-out;
   }
-
-  /* ========== Responsive adjustments ========== */
+  
+  /* Responsive adjustments */
   header {
     background-attachment: scroll;
     height: 35vh;
   }
   header h1 {
-    font-size: 2.5rem;
+    font-size: 1rem;
   }
   header p {
     font-size: 1.25rem;
   }
-  .sticker-container img {
-    width: 80px;
-  }
   .popup-details {
     width: 250px; /* Зменшуємо попап до 250px */
   }
-
+  
   /* Меню (мобільне) */
   .menu-container-mobile {
     display: flex; /* Показуємо мобільне меню */
@@ -310,9 +315,11 @@ a:hover {
   }
 }
 
-##. **МЕДІА-ЗАПИТ 480**
-
 @media (max-width: 480px) {
+  .sticker-container {
+    bottom: 8px;  /* Зменшуємо відступ для маленьких екранів */
+    right: 8px;   /* Зменшуємо відступ для маленьких екранів */
+  }
   .sticker-container img {
     width: 60px;
   }
