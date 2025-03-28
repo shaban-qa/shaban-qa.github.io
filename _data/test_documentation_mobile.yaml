@@ -1,39 +1,65 @@
 sections:
-  - title: "1. Test Planning"
-    objective: "Define scope, devices, and key scenarios."
-    example: "Targeted Android (Samsung A51) and iOS (iPhone 12), focusing on onboarding, task management, offline mode."
-    deliverable: "Test plan with 15 critical test cases."
-
-  - title: "2. Test Case Design"
-    objective: "Detailed test cases for all features."
-    example: |
-      TC-001:
-      - Goal: Verify app launches and splash loads.
-      - Steps: Launch on A51 & iPhone 12.
-      - Result: ✅ Pass (3s load).
-
-  - title: "3. Execution & Bug Reporting"
-    objective: "Log issues with reproduction steps."
-    example: |
-      TC-002: Invalid email input causes 2s delay → 🟡
-      TC-004: App crashes on long title → ❌ Fail
-
-  - title: "4. Cross-Device Testing"
-    objective: "Ensure consistency across devices."
-    example: |
-      TC-005:
-      - Test layout on iPhone SE and Samsung Tab A.
-      - Result: ✅ UI scales properly.
-
-  - title: "5. Offline Mode & Edge Cases"
-    objective: "Resilience in poor network."
-    example: |
-      TC-003:
-      - Add task offline → re-syncs correctly. ✅
-
-  - title: "6. Final Report & Recommendations"
-    objective: "Summarize and suggest fixes."
-    deliverable: |
-      - 12/15 passed
-      - 1 critical crash
-      - Video demo + recommendations
+- deliverable: Test plan with device coverage table and 24 test scenarios across platforms.
+  example: "Scope & Coverage:\n\t• Native mobile application (Android, iOS)\n\t• Installation,\
+    \ launch, onboarding, core functionality, notifications\n\t• Device-specific features\
+    \ (camera, GPS, biometrics)\n\nRequirements & Environment:\n\t• Test environments\
+    \ set for iOS (13–17), Android (9–14)\n\t• Focus on both manual (real devices)\
+    \ and emulator-based testing\n\t• Screen resolution and OS version matrix defined\n\
+    \nTest Strategy:\n\t• Functional testing, interrupt testing (calls, SMS), UX testing\n\
+    \t• Checklists and test cases organized in test suites\n\t• Focus on critical\
+    \ path and exploratory testing\n\nRisk Areas:\n\t• Device fragmentation\n\t• Network\
+    \ switching / offline modes\n\t• Inconsistent platform behavior (iOS vs Android)"
+  objective: To define the scope, strategy, devices, and schedule for mobile application
+    testing across Android and iOS platforms. This ensures systematic validation of
+    app stability, usability, and responsiveness across real devices and emulators.
+  title: 1. Test Planning
+- deliverable: Test case suite covering 90% of business-critical paths and edge-device
+    behavior.
+  example: "Design Focus:\n\t• Based on user flows: login, navigation, feature use,\
+    \ push notification\n\t• Edge cases: incoming call during form submission, orientation\
+    \ change\n\nTypes of Test Cases:\n\t• UI validation across screen sizes\n\t• Touch\
+    \ gestures: swipe, tap, long press\n\t• Background/foreground transitions\n\t\
+    • App permission dialogs (GPS, camera, contacts)\n\nTools:\n\t• Google Sheets\
+    \ or TestRail for structured TCs\n\t• Screenshots & expected/actual results logged\
+    \ for each case"
+  objective: To create structured test cases simulating real-world user interactions
+    and mobile-specific conditions.
+  title: 2. Test Case Design
+- deliverable: Bug report with 7 unique issues, 3 critical crashes, and video proof
+    of edge-case failures.
+  example: "Execution:\n\t• Used physical devices (iPhone 12, Samsung S22) and emulators\
+    \ (Pixel 4, iPhone SE)\n\t• Functional flows tested under WiFi and 3G/4G\n\t•\
+    \ Interrupt tests: incoming call, airplane mode, low battery\n\nBug Reporting:\n\
+    \t• Logged via Notion + screenshots + screen recordings\n\t• Report includes device/OS\
+    \ version, app version, steps, expected vs actual\n\t• Prioritized as Critical,\
+    \ Major, Minor"
+  objective: To execute test cases on real devices and emulators, capture app behavior,
+    and document defects in a traceable format.
+  title: 3. Execution & Bug Reporting
+- deliverable: Security checklist + session handling validation across 4 auth paths.
+  example: "Checks Performed:\n\t• Secure storage of tokens (Keychain/Keystore)\n\t\
+    • Expired token behavior (forced logout)\n\t• Access control for unauthorized\
+    \ users\n\t• Device biometrics (Touch ID / Face ID) fallback paths\n\nSecurity\
+    \ Review:\n\t• App does not log sensitive info\n\t• Tested jailbroken/rooted devices\
+    \ to detect insecure behavior"
+  objective: To verify secure handling of user credentials, session tokens, and device-level
+    permission requests.
+  title: 4. Authentication & Security
+- deliverable: 'Performance report: 3s cold start, 95% smooth scroll, 70MB RAM on
+    avg, no crashes under pressure.'
+  example: "Tests Conducted:\n\t• Cold start and warm start timing (under 3s target)\n\
+    \t• Scrolling smoothness on low-end Android\n\t• App size and memory usage profile\n\
+    \t• Monitored ANRs, dropped frames, battery usage with profiler tools"
+  objective: To measure the app’s responsiveness, launch time, and behavior under
+    constrained resources (CPU, RAM, battery).
+  title: 5. Performance & Load Testing
+- deliverable: Final QA package with all reports, crash videos, and device logs
+  example: "Findings Summary:\n\t• App passed core functionality and UI validation\
+    \ on 5 target devices\n\t• 3 critical bugs found, all reproducible\n\t• UX inconsistency\
+    \ on Android dark mode\n\nRecommendations:\n\t1. Optimize onboarding for one-hand\
+    \ usage\n\t2. Improve dark mode color contrast\n\t3. Re-test on Android 14 once\
+    \ stable\n\nDeliverables Provided:\n\t• \U0001F4C4 Full test report (PDF)\n\t\
+    • \U0001F3A5 Crash video logs\n\t• ✅ Signed device compatibility matrix"
+  objective: To deliver a comprehensive summary of test results, highlight risks,
+    and suggest improvements prior to store release.
+  title: 6. Final Report & Recommendations

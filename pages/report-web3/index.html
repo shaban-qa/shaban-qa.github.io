@@ -22,28 +22,49 @@ hide_title: true
 
   <!-- Test Documentation Section -->
   <section class="bg-gray-800 p-8 rounded-lg">
-    <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Test Documentation: From A to Z</h2>
-    <p class="text-lg leading-relaxed mb-6">
-      Here’s how we test your Web3 app, step-by-step, to ensure a flawless blockchain experience. Each phase includes examples from this demo.
-    </p>
+  <h2 class="text-3xl font-semibold text-yellow-400 mb-6">Test Documentation: From A to Z</h2>
+  <p class="text-lg leading-relaxed mb-6">
+    Here’s how we test your Web3 app, step-by-step, to ensure a flawless blockchain experience. Each phase includes examples from this demo.
+  </p>
 
-    {% for section in site.data.test_documentation_web3.sections %}
-      <details class="mb-6">
-        <summary class="cursor-pointer text-xl text-yellow-200">{{ section.title }}</summary>
-        <div class="p-4 bg-gray-700 text-gray-300">
-          {% if section.objective %}
-            <p><strong>Objective:</strong> {{ section.objective }}</p>
-          {% endif %}
-          {% if section.example %}
-            <p><strong>Example:</strong><br>{{ section.example | newline_to_br }}</p>
-          {% endif %}
-          {% if section.deliverable %}
-            <p><strong>Deliverable:</strong><br>{{ section.deliverable | newline_to_br }}</p>
-          {% endif %}
-        </div>
-      </details>
-    {% endfor %}
-  </section>
+  {% for section in site.data.test_documentation_web3.sections %}
+    <details class="mb-8 border border-gray-600 rounded-md overflow-hidden">
+      <summary class="cursor-pointer text-xl text-yellow-300 bg-gray-700 px-6 py-4 hover:bg-gray-600 transition">
+        {{ section.title }}
+      </summary>
+      <div class="px-6 py-5 bg-gray-800 space-y-6 text-gray-200 text-base leading-relaxed">
+
+        {% if section.objective %}
+          <div class="border-l-4 border-yellow-500 pl-4">
+            <h3 class="font-semibold text-yellow-400 mb-1">🎯 Objective</h3>
+            <p>{{ section.objective }}</p>
+          </div>
+        {% endif %}
+
+        {% if section.example %}
+          <hr class="border-gray-600">
+          <div class="border-l-4 border-blue-400 pl-4">
+            <h3 class="font-semibold text-blue-300 mb-1">📌 Example</h3>
+            <div class="whitespace-pre-line font-mono text-sm text-gray-300">
+              {{ section.example | newline_to_br }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.deliverable %}
+          <hr class="border-gray-600">
+          <div class="border-l-4 border-green-500 pl-4">
+            <h3 class="font-semibold text-green-300 mb-1">📦 Deliverable</h3>
+            <div class="whitespace-pre-line font-mono text-sm text-gray-300">
+              {{ section.deliverable | newline_to_br }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </details>
+  {% endfor %}
+</section>
 
   <!-- Why It Matters Section -->
   <section class="bg-gray-800 p-8 rounded-lg">

@@ -1,35 +1,62 @@
 sections:
-  - title: "1. Test Planning"
-    objective: "Define scope, chains, and key flows."
-    example: "Ethereum (Sepolia), Polygon (Mumbai), wallet login, minting, token transfers."
-    deliverable: "20 test cases."
-
-  - title: "2. Test Case Design"
-    objective: "Write test cases for smart contracts."
-    example: |
-      TC-001: Connect MetaMask → ✅ address displayed
-
-  - title: "3. Execution & Bug Reporting"
-    objective: "Track blockchain issues."
-    example: |
-      TC-002: Mint NFT fails (gas) → ❌
-      TC-003: Token sent, UI doesn't update → 🟡
-
-  - title: "4. Smart Contract Interaction"
-    objective: "Test calls, logs, approvals."
-    example: |
-      TC-004: Approve tokens → ✅ event emitted
-      TC-005: Invalid call → ✅ reverted
-
-  - title: "5. Security & Edge Cases"
-    objective: "Try exploits, edge inputs."
-    example: |
-      TC-006: Reentrancy guarded → ✅
-      TC-007: Zero gas tx → 🟡 UI freeze
-
-  - title: "6. Final Report & Recommendations"
-    objective: "Wrap findings and risks."
-    deliverable: |
-      - 17/20 passed
-      - 1 critical bug
-      - Tx logs + fixes
+- deliverable: Test scope, network matrix, wallet setup guide, and critical user path
+    outline.
+  example: "Scope:\n\t• Web3 app UI + wallet connection + smart contract interaction\n\
+    \t• Networks: Ethereum (testnet), Polygon, BSC\n\t• Metamask, WalletConnect, and\
+    \ fallback flows\n\nEnvironment:\n\t• Staging frontend with smart contracts on\
+    \ Goerli\n\t• Faucet-configured test wallets for repeatability\n\nTools:\n\t•\
+    \ MetaMask (Chrome extension), Hardhat (for mocks)\n\t• Remix IDE for direct contract\
+    \ invocation\n\t• DevTools + etherscan for tx validation\n\nRisks:\n\t• Wallet\
+    \ rejection or transaction failures\n\t• Out-of-gas errors or long confirmations\n\
+    \t• State desync between UI and blockchain"
+  objective: To define the scope, tools, blockchain networks, and environment setup
+    for testing dApps and smart contract flows.
+  title: 1. Test Planning
+- deliverable: Test case library with success/failure outcomes and wallet state checkpoints.
+  example: "Test Scenarios:\n\t• Connect/disconnect wallet with Metamask\n\t• Mint\
+    \ NFT (if enough balance)\n\t• Attempt mint with 0 balance\n\t• Transaction rejection\
+    \ from user side\n\t• Gas estimation failure or underpriced gas\n\nEdge Cases:\n\
+    \t• Switching networks during tx\n\t• Rapid repeat clicks on confirm\n\t• Contract\
+    \ revert and UI sync check\n\nDesign Tools:\n\t• Gherkin syntax for scenario writing\n\
+    \t• Pre-conditions include wallet state, token approvals"
+  objective: To define scenarios that cover transaction flows, wallet behavior, edge
+    cases, and smart contract response handling.
+  title: 2. Test Case Design
+- deliverable: Chain-specific bug list with screenshots, tx hashes, and smart contract
+    logs.
+  example: "Execution:\n\t• Ran tests on Goerli (ETH), Mumbai (Polygon), and local\
+    \ Hardhat\n\t• Verified UI vs chain explorer data\n\t• Metamask events traced\
+    \ (sign, reject, confirm)\n\nBug Reporting:\n\t• UI shows tx success before confirmation\n\
+    \t• Incorrect gas limit default → failed mint\n\t• Etherscan shows status fail\
+    \ while UI shows success"
+  objective: To perform tests on different chains, capture behavior for each wallet
+    action, and report blockchain-specific bugs.
+  title: 3. Execution & Bug Reporting
+- deliverable: Security test report for signing, access control, and nonce handling
+    coverage.
+  example: "Checks:\n\t• Signature request → verify signer address match\n\t• Replay\
+    \ protection (nonce handling)\n\t• Unauthorized access via bypassed frontend\n\
+    \t• UI locked until wallet connection\n\nSecurity Tools:\n\t• Hardhat console\
+    \ logs\n\t• Ethers.js for message hash verification"
+  objective: To validate wallet-based auth, message signing flows, replay protection,
+    and permission boundaries.
+  title: 4. Authentication & Security
+- deliverable: Gas usage table, UI wait time audit, and RPC response comparison.
+  example: "Tests Run:\n\t• Gas usage per mint, per approval\n\t• Confirmation time\
+    \ across chains (Goerli: 15s avg)\n\t• UI feedback latency simulation (slow RPC\
+    \ + devtools throttle)\n\nFindings:\n\t• Polygon txs faster but error handling\
+    \ weaker\n\t• User double-clicked confirm due to no feedback\n\t• Loading spinner\
+    \ missing for pending tx"
+  objective: To monitor transaction latency, gas usage, and UX under delayed confirmations
+    or slow RPC responses.
+  title: 5. Performance & Load Testing
+- deliverable: Web3 QA report with chain coverage, bug insights, and wallet UX review.
+  example: "Summary:\n\t• All wallet flows work on ETH and Polygon\n\t• 4 smart contract\
+    \ revert cases uncovered\n\t• UX flow broke when user switched networks\n\nRecommendations:\n\
+    \t1. Add loader and tx status indicators\n\t2. Delay UI success until confirmed\n\
+    \t3. Precheck balance/gas before enable buttons\n\nDeliverables:\n\t• ✅ Full QA\
+    \ report\n\t• \U0001F9EA Chain-by-chain matrix\n\t• \U0001F510 Security checklist\
+    \ PDF"
+  objective: To summarize the testing results across chains and provide actionable
+    recommendations for security, UX, and stability.
+  title: 6. Final Report & Recommendations

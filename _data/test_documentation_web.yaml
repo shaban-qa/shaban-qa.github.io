@@ -1,37 +1,59 @@
 sections:
-  - title: "1. Test Planning"
-    objective: "Define browsers and features."
-    example: "Target Chrome, Firefox, Safari, Edge — login, dashboard, forms."
-    deliverable: "20 test cases."
-
-  - title: "2. Test Case Design"
-    objective: "Write cases for web features."
-    example: |
-      TC-001:
-      - Goal: Login works with valid input.
-      - Result: ✅ All browsers
-
-  - title: "3. Execution & Bug Reporting"
-    objective: "Log browser-specific bugs."
-    example: |
-      TC-002: Safari no error on empty form → ❌
-      TC-003: 500 error on 3G → ❌
-
-  - title: "4. Cross-Browser Testing"
-    objective: "Ensure layout and behavior."
-    example: |
-      TC-004:
-      - Mobile + desktop → ✅ layout adjusts
-
-  - title: "5. Performance & Edge Cases"
-    objective: "Stress and input testing."
-    example: |
-      TC-005: XSS attempt → ✅ sanitized
-      TC-006: 1000+ records → 🟡 recommend pagination
-
-  - title: "6. Final Report & Recommendations"
-    objective: "Summarize findings."
-    deliverable: |
-      - 16/20 passed
-      - 2 minor, 2 critical bugs
-      - Walkthrough video + fixes
+- deliverable: Test plan with coverage matrix and priority page checklist.
+  example: "Scope:\n\t• Desktop and mobile browsers: Chrome, Firefox, Safari, Edge\n\
+    \t• Pages: homepage, registration, login, dashboard, search, checkout\n\t• Functional,\
+    \ compatibility, UI/UX and error validation\n\nEnvironments:\n\t• Staging with\
+    \ CDN and auth configured\n\t• Mobile viewports simulated + tested on real devices\n\
+    \nTools:\n\t• Chrome DevTools for debugging and performance traces\n\t• BrowserStack\
+    \ for real-device browser tests\n\t• Postman for backend integration checks\n\n\
+    Risks:\n\t• DOM rendering differences between Safari/Firefox\n\t• Layout breakage\
+    \ on mobile viewports\n\t• Form validation inconsistencies across browsers"
+  objective: To define the goals, browser matrix, environments, and strategy for cross-browser
+    and functional web testing.
+  title: 1. Test Planning
+- deliverable: Test case suite with annotated screenshots and browser-specific flags.
+  example: "Case Types:\n\t• Navigation: homepage → login → dashboard\n\t• Form handling:\
+    \ validation messages, input limits, tab flow\n\t• API integration: verify front-to-back\
+    \ data sync\n\t• Responsiveness: resizing and mobile-first layouts\n\nEdge Cases:\n\
+    \t• Typing invalid emails, empty fields\n\t• Resizing during form input\n\t• Cached\
+    \ login state and logout behavior\n\nTools:\n\t• Test cases in Notion/TestRail\n\
+    \t• DevTools + Lighthouse used during test writing"
+  objective: To create structured test cases that validate key user journeys, UI behavior,
+    and backend integration on multiple browsers.
+  title: 2. Test Case Design
+- deliverable: Bug report document with 15+ tracked issues and browser evidence.
+  example: "Execution:\n\t• Manual runs on Chrome, Firefox, Edge (desktop)\n\t• BrowserStack\
+    \ for iOS Safari + Android Chrome\n\t• UI checked against Figma design\n\nBug\
+    \ Reporting:\n\t• Logged in Trello + screenshots + video when needed\n\t• Labeled\
+    \ by device, browser, priority\n\t• Issues grouped by feature/module"
+  objective: To execute test flows across target browsers and devices and capture
+    visual, functional, and integration bugs.
+  title: 3. Execution & Bug Reporting
+- deliverable: Security findings summary + token/session validation notes.
+  example: "Checks:\n\t• Token behavior (storage in cookie/localStorage)\n\t• 403\
+    \ for expired/invalid JWTs\n\t• Input encoding for script injection (XSS)\n\t\
+    • URL tampering (direct access to /admin)\n\nTools:\n\t• DevTools → Application\
+    \ tab\n\t• Incognito/private tabs for state isolation"
+  objective: To verify secure login/logout flow, session timeout, error handling,
+    and input sanitization on all browsers.
+  title: 4. Authentication & Security
+- deliverable: Lighthouse report, JS/CSS analysis, and frontend speed profile.
+  example: "Frontend Metrics:\n\t• First Contentful Paint (FCP), Largest Contentful\
+    \ Paint (LCP)\n\t• Time to Interactive (TTI), CLS\n\t• Lighthouse performance\
+    \ score tracked\n\nLoad Checks:\n\t• API response stability under parallel tab\
+    \ usage\n\t• Static assets via CDN validation\n\t• JS bundle size monitored\n\n\
+    Observations:\n\t• Login page FCP = 1.8s, CLS = 0.01\n\t• Search API degraded\
+    \ with 5+ active users"
+  objective: To analyze frontend performance, detect bottlenecks, and validate load
+    behavior under real and simulated conditions.
+  title: 5. Performance & Load Testing
+- deliverable: Final QA report archive with browser-specific feedback and visual logs.
+  example: "Summary:\n\t• Cross-browser UI passed with minor alignment issues on Edge\n\
+    \t• 3 high-priority bugs fixed during test cycle\n\t• Checkout tested with live\
+    \ test card\n\nRecommendations:\n\t1. Refactor form validation for Safari\n\t\
+    2. Add fallback for mobile navigation menu\n\t3. Review layout breakpoints for\
+    \ <360px viewports\n\nDeliverables:\n\t• ✅ PDF Test Summary\n\t• \U0001F4F8 Screenshots\
+    \ archive\n\t• \U0001F4C1 Browser log exports"
+  objective: To provide a consolidated report of all test results with actionable
+    fixes and browser-specific improvement plans.
+  title: 6. Final Report & Recommendations
