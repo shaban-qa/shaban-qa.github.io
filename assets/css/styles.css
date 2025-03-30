@@ -124,6 +124,32 @@ details > div {
   display: inline-block;
 }
 
+/* ========== Price Section ========== */
+
+.price-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Відступ між закресленою та основною ціною */
+  }
+  .original-price {
+    font-size: 1em; /* Менший розмір шрифту */
+    color: #FF5733; /* Сірий колір */
+    text-decoration: line-through; /* Закреслення */
+  }
+  .current-price {
+    font-size: 1.2em; /* Більший розмір шрифту */
+    font-weight: bold; /* Жирний текст */
+    color: #fff; /* Білий колір для контрасту */
+  }
+  .pricing-card {
+    background-color: #4b5563; /* Темно-сірий фон карток */
+    padding: 1.5rem; /* Внутрішні відступи */
+    border-radius: 0.5rem; /* Закруглені кути */
+    text-align: center; /* Центрування тексту */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь */
+  }
+
 /* ========== Details & Popups ========== */
 
 /* Обгортка для кнопки та попапу */
