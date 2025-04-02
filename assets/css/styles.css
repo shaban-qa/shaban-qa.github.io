@@ -181,6 +181,7 @@ details > div {
   pointer-events: none; /* поки приховане — не клікабельне */
 }
 .popup-details:not(.hidden) {
+  color: #60A5FA;
   pointer-events: auto;
   opacity: 1;
 }
